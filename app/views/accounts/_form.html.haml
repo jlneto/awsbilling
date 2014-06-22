@@ -1,0 +1,13 @@
+= simple_form_for(@account) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :aws_account_id
+    = f.input :bucket_name
+    = f.input :access_key
+    = f.input :secret
+    = f.association :user
+
+  .form-actions
+    = f.button :submit

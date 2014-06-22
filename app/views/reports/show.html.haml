@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Account:
+  = @report.account_id
+%p
+  %b Period:
+  = @report.period
+%p
+  %b Value:
+  = @report.value
+
+= link_to 'Edit', edit_report_path(@report)
+\|
+= link_to 'Back', reports_path

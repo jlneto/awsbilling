@@ -11,7 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140622152805) do
+ActiveRecord::Schema.define(version: 20140622204018) do
+
+  create_table "accounts", force: true do |t|
+    t.string   "name"
+    t.string   "aws_account_id"
+    t.string   "bucket_name"
+    t.string   "access_key"
+    t.string   "secret"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "report_lines", force: true do |t|
+    t.string   "report_id"
+    t.string   "service"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reports", force: true do |t|
+    t.string   "account_id"
+    t.string   "period"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -27,6 +54,7 @@ ActiveRecord::Schema.define(version: 20140622152805) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.integer  "account_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

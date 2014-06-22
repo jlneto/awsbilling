@@ -77,3 +77,11 @@ Scheduled process to
 - parse csv files and store in database
 - update billing indicators         
 - prepare and send email reports
+
+
+
+
+
+rails g scaffold Account name aws_account_id bucket_name access_key secret 
+rails g scaffold Report account_id period value 
+rails g model ReportLine report_id service value 
