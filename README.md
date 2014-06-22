@@ -25,7 +25,36 @@ This information will also be availabe at your home screen
 
 aws-billing
 -----------
-InvoiceID,PayerAccountId,LinkedAccountId,RecordType,RecordID,BillingPeriodStartDate,BillingPeriodEndDate,InvoiceDate,PayerAccountName,LinkedAccountName,TaxationAddress,PayerPONumber,ProductCode,ProductName,SellerOfRecord,UsageType,Operation,RateId,ItemDescription,UsageStartDate,UsageEndDate,UsageQuantity,BlendedRate,CurrencyCode,CostBeforeTax,Credits,TaxAmount,TaxType,TotalCost
+
+"#{account_id}-aws-billing-csv-#{year}-#{month}.csv"
+
+
+InvoiceID,
+PayerAccountId,
+LinkedAccountId,
+RecordType,
+RecordID,BillingPeriodStartDate,BillingPeriodEndDate,InvoiceDate,PayerAccountName,LinkedAccountName,TaxationAddress,PayerPONumber,ProductCode,ProductName,SellerOfRecord,UsageType,Operation,RateId,ItemDescription,UsageStartDate,UsageEndDate,UsageQuantity,BlendedRate,CurrencyCode,CostBeforeTax,Credits,TaxAmount,TaxType,TotalCost
+
+
+v1:
+ler a coluna
+D e E ate acharmos os totalizadores 
+InvoiceTotal	InvoiceTotal:Estimated
+AccountTotal	AccountTotal:676854543053
+AccountTotal	AccountTotal:306171939414
+AccountTotal	AccountTotal:105881016778
+
+
+Dessas linhas pegamos as colunas
+S,X e Y (AC = Total Cost, include Tax)
+Descricao, Moeda e Valor
+Total amount for invoice Estimated					USD	4125,03
+Total for linked account# 676854543053 (TaxWeb)					USD	3636,566458
+Total for linked account# 306171939414 (AWS Taxrules)					USD	374,98865
+Total for linked account# 105881016778 (Marcos Tagomori)					USD	113,321675
+
+
+
 
 
 cost-allocation
@@ -44,7 +73,7 @@ InvoiceID,PayerAccountId,LinkedAccountId,RecordType,RecordId,ProductName,RateId,
 Scheduled process to
 --------------------
 
-Fetch files from s3
-parse csv files and store in database
-update billing indicators
-prepare and send email reports
+- Fetch files from s3
+- parse csv files and store in database
+- update billing indicators         
+- prepare and send email reports
