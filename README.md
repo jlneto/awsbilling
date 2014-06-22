@@ -1,145 +1,50 @@
-Awsbilling
-=========
+Billing follow up and prediction for Amazon Web services
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
+This application was developed based on the following documentation:
+http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/DetailedBillingReports.html
 
-Diagnostics
+
+USAGE
+=====
+
+Inform: 
+- email
+- a password
+- your aws account number
+- aws billing reports bucket
+- AMI credentials with access to aws billing reports bucket
+
+
+The app will daily email you a report with:
+
+- Your Billing amount so far for this month
+- Estimate Billing amount for this month, based on a 30 day daily average
+- the percent variation from previous month
+
+This information will also be availabe at your home screen
+
+aws-billing
 -----------
+InvoiceID,PayerAccountId,LinkedAccountId,RecordType,RecordID,BillingPeriodStartDate,BillingPeriodEndDate,InvoiceDate,PayerAccountName,LinkedAccountName,TaxationAddress,PayerPONumber,ProductCode,ProductName,SellerOfRecord,UsageType,Operation,RateId,ItemDescription,UsageStartDate,UsageEndDate,UsageQuantity,BlendedRate,CurrencyCode,CostBeforeTax,Credits,TaxAmount,TaxType,TotalCost
 
-This application was built with recipes that are NOT known to work together.
 
-This application was built with preferences that are NOT known to work
-together.
-
-If the application doesn’t work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include these diagnostics:
-
-We’d also like to know if you’ve found combinations of recipes or
-preferences that do work together.
-
-Recipes:
-
-* core
-* deployment
-* devise
-* email
-* extras
-* frontend
-* gems
-* git
-* init
-* learn_rails
-* omniauth
-* pages
-* rails_bootstrap
-* rails_devise
-* rails_devise_pundit
-* rails_foundation
-* rails_omniauth
-* rails_signup_download
-* railsapps
-* readme
-* roles
-* setup
-* tests
-
-Preferences:
-
-* git: true
-* apps4: none
-* dev_webserver: thin
-* prod_webserver: thin
-* database: mysql
-* templates: haml
-* tests: rspec
-* continuous_testing: none
-* frontend: bootstrap3
-* email: gmail
-* authentication: devise
-* devise_modules: default
-* authorization: none
-* form_builder: simple_form
-* pages: about+users
-* quiet_assets: true
-* local_env_file: figaro
-* better_errors: true
-* ban_spiders: true
-* github: true
-* deployment: capistrano3
-
-Ruby on Rails
--------------
-
-This application requires:
-
--   Ruby
--   Rails
-
-Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
-
-Database
---------
-
-This application uses MySQL with ActiveRecord.
-
-Development
------------
-
--   Template Engine: Haml
--   Testing Framework: RSpec
--   Front-end Framework: Bootstrap 3.0 (Sass)
--   Form Builder: SimpleForm
--   Authentication: Devise
--   Authorization: None
--   Admin: None
-
-Email
------
-
-The application is configured to send email using a Gmail account.
-
-Email delivery is disabled in development.
-
-Getting Started
+cost-allocation
 ---------------
+InvoiceID,PayerAccountId,LinkedAccountId,RecordType,RecordID,BillingPeriodStartDate,BillingPeriodEndDate,InvoiceDate,PayerAccountName,LinkedAccountName,TaxationAddress,PayerPONumber,ProductCode,ProductName,SellerOfRecord,UsageType,Operation,AvailabilityZone,RateId,ItemDescription,UsageStartDate,UsageEndDate,UsageQuantity,BlendedRate,CurrencyCode,CostBeforeTax,Credits,TaxAmount,TaxType,TotalCost,user:Name,user:custo,user:empresa,user:name
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Don't see your tags in the report? New tags are excluded by default - go to https://portal.aws.amazon.com/gp/aws/developer/account?action=cost-allocation-report to update your cost allocation keys.
 
-Documentation and Support
--------------------------
 
-This is the only documentation.
+Detailed line items with resources
+----------------------------------
+InvoiceID,PayerAccountId,LinkedAccountId,RecordType,RecordId,ProductName,RateId,SubscriptionId,PricingPlanId,UsageType,Operation,AvailabilityZone,ReservedInstance,ItemDescription,UsageStartDate,UsageEndDate,UsageQuantity,BlendedRate,BlendedCost,UnBlendedRate,UnBlendedCost,ResourceId,user:Name,user:custo,user:empresa,user:name
 
-#### Issues
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
-Similar Projects
-----------------
+Scheduled process to
+--------------------
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-Contributing
-------------
-
-If you make improvements to this application, please share with others.
-
--   Fork the project on GitHub.
--   Make your feature addition or bug fix.
--   Commit with Git.
--   Send the author a pull request.
-
-If you add functionality to this application, create an alternative
-implementation, or build an application that is similar, please contact
-me and I’ll add a note to the README so that others can find your work.
-
-Credits
--------
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-License
--------
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Fetch files from s3
+parse csv files and store in database
+update billing indicators
+prepare and send email reports
