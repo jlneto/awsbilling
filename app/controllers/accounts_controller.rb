@@ -61,7 +61,7 @@ class AccountsController < ApplicationController
     end
   end
 
-  def update_billing_data
+  def update_billing
     @account = current_user.account
     @account.update_billing_data
     redirect_to :root

@@ -4,7 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :account
+  # belongs_to :account
 
+  def account
+    Account.where(user_id: self.id).first
+  end
 
 end
