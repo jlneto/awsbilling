@@ -62,8 +62,11 @@ class AccountsController < ApplicationController
   end
 
   def update_billing
-    @account = current_user.account
-    @account.update_billing_data
+    account = current_user.account
+    account.update_billing_data(Date.today)
+    unless account.month_report(1.month.ago)
+      account.update_billing_data(1.month.ago)
+    end
     redirect_to :root
   end
 
