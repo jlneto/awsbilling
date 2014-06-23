@@ -2,10 +2,10 @@
 
 FactoryGirl.define do
   factory :account do
-    name "MyString"
-    aws_account_id "MyString"
-    bucket_name "MyString"
-    access_key "MyString"
-    secret "MyString"
+    name "MyCompany"
+    aws_account_id "123456789"
+    bucket_name "Mycomapny-awsbilling"
+    access_key "123456789"
+    secret "123456789"
   end
 end

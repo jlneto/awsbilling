@@ -18,6 +18,7 @@ gem 'mysql2'
 gem 'simple_form'
 gem 'thin'
 gem 'aws-sdk', '~> 1.0'
+gem 'whenever', :require => false
 
 group :development do
   gem 'better_errors'

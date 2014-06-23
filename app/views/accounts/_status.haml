@@ -1,0 +1,45 @@
+%h3
+  = @account.name
+  \:
+  = current_month
+
+%table.table
+  %tr
+    %td
+    %td Current
+    %td Change (%)
+    %td Previous
+  %tr
+    %td MONTH TO DATE SPEND:
+    %td= format_number @account.month_to_date_spend
+    %td= format_number @account.month_to_date_change
+    %td= format_number @account.last_month_to_date_spend
+  %tr
+    %td= "ESTIMATE FOR #{current_month}:"
+    %td= format_number @account.month_estimate_spend
+    %td= format_number @account.month_change
+    %td= format_number @account.last_month_spend
+  %tr
+    %td DAY AVERAGE
+    %td= format_number @account.day_average_spend
+    %td= format_number @account.day_average_change
+    %td= format_number @account.previous_average_spend
+  %tr
+    %td LAST DAY SPEND
+    %td= format_number @account.day_spend
+    %td= format_number @account.day_spend_change
+    %td= format_number @account.previous_day_spend
+
+
+.panel.summary
+  .panel-header
+    %h3 Estimate For June
+  .panel-content
+    .values
+      .value
+        estimated_month_value
+        $5,237
+      .difference.diff_percent
+        10%
+    %p.sub-text
+      Spend last month was $5,797

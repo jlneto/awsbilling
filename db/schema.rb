@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20140623000256) do
   create_table "report_lines", force: true do |t|
     t.string   "report_id"
     t.string   "service"
-    t.string   "value"
+    t.decimal  "value",      precision: 10, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -35,11 +35,11 @@ ActiveRecord::Schema.define(version: 20140623000256) do
   create_table "reports", force: true do |t|
     t.string   "account_id"
     t.string   "period"
-    t.string   "value"
+    t.decimal  "value",                precision: 10, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "day_average",          precision: 10, scale: 0
-    t.decimal  "previous_day_average", precision: 10, scale: 0
+    t.decimal  "day_average",          precision: 10, scale: 2
+    t.decimal  "previous_day_average", precision: 10, scale: 2
     t.integer  "reference_day"
   end
 

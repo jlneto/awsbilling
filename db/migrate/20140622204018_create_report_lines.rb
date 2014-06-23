@@ -3,7 +3,7 @@ class CreateReportLines < ActiveRecord::Migration
     create_table :report_lines do |t|
       t.string :report_id
       t.string :service
-      t.string :value
+      t.decimal :value, scale: 2
 
       t.timestamps
     end
