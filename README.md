@@ -1,3 +1,5 @@
+[ ![Codeship Status for jlneto/awsbilling](https://www.codeship.io/projects/0192d770-ddd0-0131-af05-5236ebb52643/status)](https://www.codeship.io/projects/24718)
+
 Monitor your Amazon Web services Account Spending
 =================================================
 

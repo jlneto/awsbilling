@@ -1,0 +1,947 @@
+Delivered-To: jose.neto@taxweb.com.br
+Received: by 10.194.88.200 with SMTP id bi8csp129854wjb;
+        Mon, 23 Jun 2014 18:41:31 -0700 (PDT)
+X-Received: by 10.66.197.131 with SMTP id iu3mr34599099pac.102.1403574091078;
+        Mon, 23 Jun 2014 18:41:31 -0700 (PDT)
+Return-Path: <bounces+165241-34b6-jose.neto=taxweb.com.br@email.cloudability.com>
+Received: from o1.email.cloudability.com (o1.email.cloudability.com. [50.31.43.216])
+        by mx.google.com with SMTP id ko1si6669965pbd.115.2014.06.23.18.41.30
+        for <jose.neto@taxweb.com.br>
+        (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 23 Jun 2014 18:41:31 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+165241-34b6-jose.neto=taxweb.com.br@email.cloudability.com designates 50.31.43.216 as permitted sender) client-ip=50.31.43.216;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of bounces+165241-34b6-jose.neto=taxweb.com.br@email.cloudability.com designates 50.31.43.216 as permitted sender) smtp.mail=bounces+165241-34b6-jose.neto=taxweb.com.br@email.cloudability.com;
+       dkim=pass header.i=@cloudability.com
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed; d=cloudability.com; 
+	h=from:to:subject:mime-version:content-type:content-transfer-encoding; 
+	s=smtpapi; bh=1O9hdenPlxUN2+9O8IYSJZf4rkU=; b=NSYjr0c0Jhs39JEZ06
+	LBoxZWvzeuS9DZNQfgU7qlhzxGZxnZhmjNXYYnPHldpVTG8yqYQhAQRewvlCe0cO
+	/skzf52B4w1Tmvfe7inKXEwncaMoLJL566D94lI2YcvFZvnpTlkIz1Yo3x/cy8Gz
+	kRfSKvEkd8RLAB7uwQw+U0HVM=
+Received: by mf195.sendgrid.net with SMTP id mf195.32106.53A8D7466
+        Tue, 24 Jun 2014 01:41:26 +0000 (UTC)
+Received: from ismtpd-001.iad1.sendgrid.net ([UNAVAILABLE]. [10.80.42.169])
+	by 10.60.208.6:2500 (trex/4.8.23);
+	Tue, 24 Jun 2014 01:41:28 GMT
+Received: from  (ec2-54-83-74-115.compute-1.amazonaws.com [54.83.74.115])
+	by ismtpd-001.iad1.sendgrid.net (SG) with ESMTP id 146cb88e7ce.6112.e8211
+	for <jose.neto@taxweb.com.br>; Tue, 24 Jun 2014 01:41:25 +0000 (GMT)
+Date: Tue, 24 Jun 2014 01:41:25 +0000
+From: Cloudability <support@cloudability.com>
+To: =?UTF-8?B?Sm9zw6kgTG9wZXMgZG9zIFNhbnRvcyBOZXRv?= <jose.neto@taxweb.com.br>
+Message-ID: <53a8d745854cc_2113ff0db5bf408539ba@afc797c7-0636-4bce-a073-f443358f72c0.mail>
+Subject: Your Month So Far - Monday June 23
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_53a8d745787d4_2113ff0db5bf408538bb";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-SG-EID: Jx9o+5fwy3N30QNYdpQWF04EFMDCTYk7k0h0heYf/dNvgRrwVn5Sftt8+CDSWPjFdwePXwVK43ngarNY/fj+qOBDqrZxC4YEFeYMT8kFS6YsjQBPj15+3rxmNnuJpcSara2ArdAwn1n1P8JUaVZetCrh76fZUX5tn/2NIVNLrYc=
+X-SG-ID: YDTqBOjidbCUo/ar1oAtZhRJlU2oC7tFXj4j86Ob2aElqs6noJGu3zHwEzelLAeLY/M+vVrxK9rHZIbVQ4QQJnLSgyPCMsL5jBppXgK8nLs22H2+tztHq/X0lAfjE8ep
+
+----==_mimepart_53a8d745787d4_2113ff0db5bf408538bb
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+Your daily spend from Cloudability
+
+Here's an overview of all your cloud service costs for this month.
+
+SUMMARY
+=======
+
+Month to date: $4,309
+Last Month at this Time: $4,444
+
+Estimate for June: $5,237.00 (-10%)
+Total last month: $5,797
+
+Trailing 30-day rolling average: $190 (6%)
+Previous day's 30-day average was $180
+
+Yesterday's estimated spend: $0 (100%)
+Previous day's estimated spend was $105
+
+
+TOP SPENDS BY VENDOR
+====================
+
+  
+Amazon                           $4,309
+
+
+TOP SPENDS BY ACCOUNT
+=====================
+
+  
+Amazon 1                         $3,797
+  
+AWS Taxrules                       $393
+  
+Marcos Tagomori                    $118
+
+
+TOP SPENDS BY SERVICE
+======================
+
+  
+EC2                              $2,707
+  
+RDS                              $1,580
+  
+AWS Data Transfer                   $10
+  
+S3                                   $8
+  
+Route 53                             $5
+
+
+
+NEWEST INSTANCES
+=======================
+Instance ID	Instance Size	CPU Usage	Disk I/O	Days since launch
+
+  i-e51e92e8	  m1.small	   1.65%	    404 KB	  1
+  i-7f338f74	  t1.micro	  20.02%	   0 Bytes	  1
+  i-83fa0397	  m1.medium	   6.88%	   0 Bytes	  3
+  i-318e7725	  m1.medium	   0.22%	   0 Bytes	  4
+  i-ce25d9db	  m1.medium	   0.23%	   0 Bytes	  4
+  i-16817802	  m1.small	   0.10%	   11.6 MB	  4
+  i-c925d9dc	  m1.small	   0.18%	   11.2 MB	  4
+  i-9737cb82	  m1.medium	   1.49%	   0 Bytes	  4
+  i-6930cc7c	  m1.small	   2.21%	   10.5 MB	  4
+  i-6237cb77	  m1.small	   2.06%	   22.6 MB	  4
+
+
+View your dashboard:
+https://app.cloudability.com
+
+View this message in HTML:
+https://app.cloudability.com/daily_mail
+
+Copyright 2014 Cloudability Inc. All Rights Reserved.
+
+
+----==_mimepart_53a8d745787d4_2113ff0db5bf408538bb
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+<style type=3D"text/css" data-immutable=3D"true">
+    /* Most clients do not support @font-face, but some do. Let's add it ju=
+st in case. */
+    @font-face {
+      font-family: 'myriadweb';
+      src: url('https://app.cloudability.com/fonts/MyriadPro-Regular.eot');
+      src: url('https://app.cloudability.com/fonts/MyriadPro-Regular.woff')=
+ format('woff'),
+           url('https://app.cloudability.com/fonts/MyriadPro-Regular.ttf') =
+ format('truetype'),
+           url('https://app.cloudability.com/fonts/MyriadPro-Regular.svg') =
+format('svg');
+    }
+    body {
+      font-family: 'Myriad Pro', 'myriadweb', 'Helvetica Neue', Helvetica, =
+Tahoma, Arial, sans-serif;
+      margin: 0px;
+    }
+    .percentage .arrow {
+      font-family: Verdana, sans-serif;
+    }
+    </style>
+</head>
+<body style=3D"font-family:'Myriad Pro', 'myriadweb', 'Helvetica Neue', Hel=
+vetica, Tahoma, Arial, sans-serif;font-size:17px">
+  <table id=3D"canvas" style=3D"width:100%;border-collapse:collapse"><tr>
+<td>
+        <table id=3D"page" style=3D"border-collapse:collapse;width:100%;mar=
+gin:0">
+<tr id=3D"header" style=3D"padding-top:4px;color:#fefefe;border:0px;height:=
+45px;background-color:#28A9E1">
+<td>
+              <table id=3D"top-bar" align=3D"center" style=3D"border-collap=
+se:collapse;padding-top:2px;width:600px"><tr>
+<td id=3D"logo">
+                    <a href=3D"http://email.cloudability.com/wf/click?upn=
+=3DoL5z6zD76MrcSY3c8RVFxRiWvrFB-2B9ECO8roKfORN7Y-3D_oKpt57ioMN0MR7Bz-2BGA9M=
+CfSK6w-2B4cZuv-2B0myR3bLifyg59pBGf9m4uKglOGY0wpVYfxTiOZFzjUSBrnoSISODdRkpww=
+JtTW0uRTh6cxNuyFS11L8C1WvE-2BkbX5hIP6llUldB8ZUcHvJl-2FMBxSbRh6L0S3RomjLEQl-=
+2FhZAYe9-2BMI2o79vcKBjKsI6ZY6jX1feDC-2BVPt71PLNAS5w7t1Gt1xS2sqlyTreqb-2BW8j=
+3xiT0c48-2B13x1l21YojpwRVH9IwM8wXuDwKI-2BLcFNpeaVu8lvs1XTsO8627bZBff-2F38En=
+OeuSKwFaflA9iox3JWNcrRZIV4np30EJAGOtDyHgF-2FQ-3D-3D" style=3D"color:#ffffff=
+;text-decoration:none"><img alt=3D"Cloudability" class=3D"logo" src=3D"http=
+s://app.cloudability.com/assets/email_logo-3256cfffd74bd694c636a23d69b0fdd4=
+.png" style=3D"max-height:30px;border:0;display:block"></a>
+                  </td>
+                </tr></table>
+</td>
+          </tr>
+<tr id=3D"body">
+<td class=3D"twenty-padded" style=3D"padding:20px">
+              <table id=3D"content-structure" align=3D"center" style=3D"bor=
+der-collapse:collapse;font-size:14px;line-height:1.5em;width:600px;color:#3=
+33"><tr>
+<td>
+                    <table class=3D"summary-mail" width=3D"558" cellspacing=
+=3D"0" cellpadding=3D"0" align=3D"center" border=3D"0" style=3D"border-coll=
+apse:collapse">
+<!-- begin sub-header --><tr>
+<td id=3D"sub-header">
+      <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0=
+" style=3D"border-collapse:collapse"><tr>
+<td width=3D"83%">
+            <h2 style=3D"margin-top:0;padding:0;font-weight:normal;line-hei=
+ght:1.4em;font-size:28px;margin-bottom:5px;color:#333333;margin:0">Your dai=
+ly cost summary</h2>
+            <p class=3D"sub-title" style=3D"margin-top:0;line-height:1.3em;=
+font-weight:normal;font-size:16px;margin:0">Your estimates are based on a <=
+a href=3D"http://email.cloudability.com/wf/click?upn=3DbykbX8G3gUiDXfdMsITU=
+-2FVlLhKZvSE2F-2BzGLrLmTbmQQJnyHSUTi0qzp8ZbEl98Expfa1zXEygSD-2BCXgkHcB0Tnz9=
+KxLl4lSLHcuNkLGo-2Bo-3D_oKpt57ioMN0MR7Bz-2BGA9MCfSK6w-2B4cZuv-2B0myR3bLifyg=
+59pBGf9m4uKglOGY0wpVYfxTiOZFzjUSBrnoSISODdRkpwwJtTW0uRTh6cxNuyFS11L8C1WvE-2=
+BkbX5hIP6llUldB8ZUcHvJl-2FMBxSbRh6L0S3RomjLEQl-2FhZAYe9-2BNAwxOMuRZsY5t6lXq=
+XWEwG4-2Bjt3KkBmmwliiDiLEZXhpWqKZ9z5Eh0hKzFVtcOJKXqwjkCbz-2FlmcDtshNs9lAQ9V=
+BQlDX-2B2Nij78F-2Fkp00KajDYq33F3U2XpvYdZFXFj-2FVgwbjKdDD41K0FGEZgcf0mVCNF49=
+hdIVKRq4axczuyQ-3D-3D" style=3D"color:#666666">30-day</a> rolling average o=
+f your spend.</p>
+          </td>
+          <td width=3D"2%"></td>
+          <td class=3D"calendar" width=3D"15%" valign=3D"top" style=3D"back=
+ground-color:#FAFAFA">
+            <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" borde=
+r=3D"0" style=3D"border-collapse:collapse">
+<tr>
+<td height=3D"50" valign=3D"middle" class=3D"content" style=3D"background-c=
+olor:#EFEFEF">
+                  <h4 style=3D"padding:0;font-weight:normal;line-height:1.4=
+em;text-align:center;font-size:30px;color:#28A9E1;margin:0;margin-top:3px">=
+23</h4>
+                </td>
+              </tr>
+<tr>
+<td height=3D"28" valign=3D"middle" class=3D"footer">
+                  <p style=3D"margin-top:0;line-height:1.3em;font-size:18px=
+;margin:0;color:#ACACAC;padding:0;text-align:center;text-transform:uppercas=
+e">June</p>
+                </td>
+              </tr>
+</table>
+</td>
+        </tr></table>
+</td>
+  </tr>
+<!-- end sub-header --><tr><td height=3D"20">=C2=A0</td></tr>
+<!-- begin summary box --><tr>
+<td class=3D"summary-section" style=3D"background:#FAFAFA">
+      <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"bo=
+rder-collapse:collapse">
+<tr>
+<td class=3D"aggregate" style=3D"background:#28A9E1;border-bottom:5px solid=
+ #1D92C8;padding:20px 20px 17px 20px">
+            <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"border-collapse:collapse"><tr>
+<td width=3D"50%">
+                    <h4 style=3D"margin-top:0;padding:0;font-weight:normal;=
+line-height:1.4em;font-size:16px;color:#ffffff;margin:8px 0 4px 0;text-tran=
+sform:uppercase">Month to date spend</h4>
+                    <p style=3D"margin-top:0;line-height:1.3em;margin:0;col=
+or:#95DCFB;font-size:16px">Last month at this time <span class=3D"" style=
+=3D"color:#FFFFFF">$4,444</span></p>
+                </td>
+                <td class=3D"align-right" width=3D"50%" style=3D"text-align=
+:right">
+                  <h1 style=3D"padding:0;font-weight:normal;font-size:55px;=
+line-height:1.4em;margin:0;color:#ffffff;margin-top:7px">$4,309</h1>
+                </td>
+              </tr></table>
+</td>
+        </tr>
+<!-- begin this month's estimated spend --><tr>
+<td class=3D"breakdown" style=3D"border-top:1px solid #FFFFFF;border-bottom=
+:1px solid #DEDEDE;padding:20px 20px 17px 20px">
+            <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"border-collapse:collapse"><tr>
+<td width=3D"50%">
+                  <h5 style=3D"margin-top:0;padding:0;color:#666666;font-si=
+ze:14px;line-height:1.4em;margin:0;text-transform:uppercase;font-weight:600=
+">Estimate for June</h5>
+                  <p style=3D"margin-top:0;line-height:1.3em;font-size:18px=
+;margin:0">Last months total was <span style=3D"color:#666666">$5,797</span=
+></p>
+                </td>
+                <td class=3D"total align-right" width=3D"36%" style=3D"text=
+-align:right;padding-right:10px;color:#666666;font-size:28px">
+                  $5,237
+                </td>
+                <td width=3D"10"></td>
+                <td class=3D"percentage align-right good-news" width=3D"50"=
+ style=3D"text-align:right;color:#40c159"><div class=3D"background" style=
+=3D"padding:0 10px;vertical-align:center;text-align:center;height:24px;back=
+ground-color:#40c159">
+<span class=3D"arrow" style=3D"font-family:Verdana, sans-serif;color:#fffff=
+f">=E2=86=93</span><span class=3D"value" style=3D"color:#ffffff">10%</span>
+</div></td>
+              </tr></table>
+</td>
+        </tr>
+<!-- begin this month's estimated spend --><!-- begin 7 day average spend -=
+-><tr>
+<td class=3D"breakdown" style=3D"border-top:1px solid #FFFFFF;border-bottom=
+:1px solid #DEDEDE;padding:20px 20px 17px 20px">
+            <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"border-collapse:collapse"><tr>
+<td width=3D"50%">
+                  <h5 style=3D"margin-top:0;padding:0;color:#666666;font-si=
+ze:14px;line-height:1.4em;margin:0;text-transform:uppercase;font-weight:600=
+">Trailing 30-day rolling average</h5>
+                  <p style=3D"margin-top:0;line-height:1.3em;font-size:18px=
+;margin:0">Previous day's 30-day average was <span style=3D"color:#666666">=
+$180</span></p>
+                </td>
+                <td class=3D"total align-right" width=3D"36%" style=3D"text=
+-align:right;padding-right:10px;color:#666666;font-size:28px">
+                  $190
+                </td>
+                <td width=3D"10"></td>
+                <td class=3D"percentage align-right bad-news" width=3D"50" =
+style=3D"text-align:right;color:#dd2c2c"><div class=3D"background" style=3D=
+"padding:0 10px;vertical-align:center;text-align:center;height:24px;backgro=
+und-color:#dd2c2c">
+<span class=3D"arrow" style=3D"font-family:Verdana, sans-serif;color:#fffff=
+f">=E2=86=91</span><span class=3D"value" style=3D"color:#ffffff">6%</span>
+</div></td>
+              </tr></table>
+</td>
+        </tr>
+<!-- begin 7 day average spend --><!-- begin yesterday's spend --><tr>
+<td class=3D"breakdown" style=3D"border-top:1px solid #FFFFFF;border-bottom=
+:1px solid #DEDEDE;padding:20px 20px 17px 20px">
+            <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"border-collapse:collapse"><tr>
+<td width=3D"50%">
+                  <h5 style=3D"margin-top:0;padding:0;color:#666666;font-si=
+ze:14px;line-height:1.4em;margin:0;text-transform:uppercase;font-weight:600=
+">Yesterday's Estimated Spend</h5>
+                  <p style=3D"margin-top:0;line-height:1.3em;font-size:18px=
+;margin:0">Previous day's estimated spend was <span style=3D"color:#666666"=
+>$105</span></p>
+                </td>
+                <td class=3D"total align-right" width=3D"36%" style=3D"text=
+-align:right;padding-right:10px;color:#666666;font-size:28px">
+                  $0
+                </td>
+                <td width=3D"10"></td>
+                <td class=3D"percentage align-right bad-news" width=3D"50" =
+style=3D"text-align:right;color:#dd2c2c"><div class=3D"background" style=3D=
+"padding:0 10px;vertical-align:center;text-align:center;height:24px;backgro=
+und-color:#dd2c2c">
+<span class=3D"arrow" style=3D"font-family:Verdana, sans-serif;color:#fffff=
+f">=E2=86=91</span><span class=3D"value" style=3D"color:#ffffff">100%</span>
+</div></td>
+              </tr></table>
+</td>
+        </tr>
+<!-- end yesterday's spend -->
+</table>
+</td>
+  </tr>
+<!-- end summary box --><tr><td height=3D"20">=C2=A0</td></tr>
+<!-- begin accounts table --><tr>
+<td class=3D"tabular-data" style=3D"width:558px;padding:20px;border:1px sol=
+id #dedede">
+      <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"bo=
+rder-collapse:collapse"><tr>
+<td>
+            <h3 style=3D"margin-top:0;padding:0;font-weight:normal;color:#6=
+66666;font-size:22px;line-height:1.4em;margin:0;margin-bottom:10px">Top 10 =
+Accounts</h3>
+            <table class=3D"table" width=3D"100%" cellpadding=3D"0" cellspa=
+cing=3D"0" style=3D"border-collapse:collapse">
+<tr class=3D"thead" style=3D"background-color:transparent">
+<th style=3D"vertical-align:bottom;text-align:left;text-transform:uppercase=
+;color:#B8B8B8;font-size:12px;font-weight:bold;font-style:normal;padding:10=
+px 15px 10px 15px;border-bottom:1px solid #dedede">ACCOUNT</th>
+                <th class=3D"fixedcol" style=3D"width:60px;font-weight:bold=
+;text-transform:uppercase;color:#B8B8B8;font-size:12px;text-align:left;font=
+-style:normal;padding:10px 15px 10px 15px;border-bottom:1px solid #dedede;v=
+ertical-align:bottom">VENDOR</th>
+                <th class=3D"sorter fixedcol" style=3D"width:60px;font-styl=
+e:normal;text-transform:uppercase;font-size:12px;font-weight:bold;text-alig=
+n:left;vertical-align:bottom;border-bottom:1px solid #dedede;padding:10px 1=
+5px 10px 15px;border:1px solid #cccccc;color:#28A9E1">SPEND =E2=96=BC</th>
+              </tr>
+<tr style=3D"background-color:#fafafa">
+<td style=3D"padding:10px 7px 10px 7px;font-size:14px;border-bottom:1px sol=
+id #dedede;background-color:#f6f6f6">Amazon 1</td>
+                  <td class=3D"darker-cell" style=3D"padding:10px 7px 10px =
+7px;font-size:14px;border-bottom:1px solid #dedede;background-color:#f6f6f6=
+">Amazon</td>
+                  <td class=3D"table-total-with-percent fixedcol number-cel=
+l" style=3D"width:60px;text-align:right;font-size:14px;padding:10px 7px 10p=
+x 7px;border-top:1px solid #cccccc;border-right:1px solid #cccccc;border-bo=
+ttom:1px solid #cccccc;background-color:#efefef;border-left:1px solid #cccc=
+cc">$3,797.39</td>
+                </tr>
+<tr style=3D"background-color:#fafafa">
+<td style=3D"padding:10px 7px 10px 7px;font-size:14px;border-bottom:1px sol=
+id #dedede;background-color:#f6f6f6">AWS Taxrules</td>
+                  <td class=3D"darker-cell" style=3D"padding:10px 7px 10px =
+7px;font-size:14px;border-bottom:1px solid #dedede;background-color:#f6f6f6=
+">Amazon</td>
+                  <td class=3D"table-total-with-percent fixedcol number-cel=
+l" style=3D"width:60px;text-align:right;font-size:14px;padding:10px 7px 10p=
+x 7px;border-top:1px solid #cccccc;border-right:1px solid #cccccc;border-bo=
+ttom:1px solid #cccccc;background-color:#efefef;border-left:1px solid #cccc=
+cc">$393.19</td>
+                </tr>
+<tr style=3D"background-color:#fafafa">
+<td style=3D"padding:10px 7px 10px 7px;font-size:14px;border-bottom:1px sol=
+id #dedede;background-color:#f6f6f6">Marcos Tagomori</td>
+                  <td class=3D"darker-cell" style=3D"padding:10px 7px 10px =
+7px;font-size:14px;border-bottom:1px solid #dedede;background-color:#f6f6f6=
+">Amazon</td>
+                  <td class=3D"table-total-with-percent fixedcol number-cel=
+l" style=3D"width:60px;text-align:right;font-size:14px;padding:10px 7px 10p=
+x 7px;border-top:1px solid #cccccc;border-right:1px solid #cccccc;border-bo=
+ttom:1px solid #cccccc;background-color:#efefef;border-left:1px solid #cccc=
+cc">$118.46</td>
+                </tr>
+</table>
+<p class=3D"view-all" style=3D"margin-top:0;line-height:1.3em;font-size:18p=
+x;margin:20px 0 0 0"><a href=3D"http://email.cloudability.com/wf/click?upn=
+=3DbykbX8G3gUiDXfdMsITU-2FVlLhKZvSE2F-2BzGLrLmTbmSE8rWy7JElTuSs5KAjJ5RulUEf=
+JeqTXJdxKv9YMpaqk-2FpJvpacK1ZJi-2FCl8Mui3qA-3D_oKpt57ioMN0MR7Bz-2BGA9MCfSK6=
+w-2B4cZuv-2B0myR3bLifyg59pBGf9m4uKglOGY0wpVYfxTiOZFzjUSBrnoSISODdRkpwwJtTW0=
+uRTh6cxNuyFS11L8C1WvE-2BkbX5hIP6llUldB8ZUcHvJl-2FMBxSbRh6L0S3RomjLEQl-2FhZA=
+Ye9-2BMULO6jlI4DjfC0Ghgfz2ZDv9fFk-2BzitfYldZ5GoTt-2BtawUdLZLNYhG7lTAken1xO0=
+LH5ayur6snZAKUgPelsIyCkNU16hMpL-2BJkxeyPPCc9DfRh7npCyi4L-2BGj8f1QbrA2vDGne5=
+rAsuYlAqhGwvaHk5wiVR-2Btmfpecs4zNnGlKA-3D-3D" style=3D"font-size:17px;color=
+:#27a8e0">View all accounts</a></p>
+          </td>
+        </tr></table>
+</td>
+  </tr>
+<!-- end accounts table --><tr><td height=3D"20">=C2=A0</td></tr>
+<!-- begin services table --><tr>
+<td class=3D"tabular-data" style=3D"width:558px;padding:20px;border:1px sol=
+id #dedede">
+      <table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"bo=
+rder-collapse:collapse"><tr>
+<td>
+            <h3 style=3D"margin-top:0;padding:0;font-weight:normal;color:#6=
+66666;font-size:22px;line-height:1.4em;margin:0;margin-bottom:10px">Top 10 =
+Services</h3>
+            <table class=3D"table" width=3D"100%" cellpadding=3D"0" cellspa=
+cing=3D"0" style=3D"border-collapse:collapse">
+<tr class=3D"thead" style=3D"background-color:transparent">
+<th style=3D"vertical-align:bottom;text-align:left;text-transform:uppercase=
+;color:#B8B8B8;font-size:12px;font-weight:bold;font-style:normal;padding:10=
+px 15px 10px 15px;border-bottom:1px solid #dedede">SERVICE</th>
+                <th class=3D"sorter fixedcol" style=3D"width:60px;font-styl=
+e:normal;text-transform:uppercase;font-size:12px;font-weight:bold;text-alig=
+n:left;vertical-align:bottom;border-bottom:1px solid #dedede;padding:10px 1=
+5px 10px 15px;border:1px solid #cccccc;color:#28A9E1">SPEND =E2=96=BC</th>
+              </tr>
+<tr style=3D"background-color:#fafafa">
+<td style=3D"padding:10px 7px 10px 7px;font-size:14px;border-bottom:1px sol=
+id #dedede;background-color:#f6f6f6"><a href=3D"http://email.cloudability.c=
+om/wf/click?upn=3DbykbX8G3gUiDXfdMsITU-2FVlLhKZvSE2F-2BzGLrLmTbmSE8rWy7JElT=
+uSs5KAjJ5Ru6w5n5oChXX3-2BEwniN4PbZg-3D-3D_oKpt57ioMN0MR7Bz-2BGA9MCfSK6w-2B4=
+cZuv-2B0myR3bLifyg59pBGf9m4uKglOGY0wpVYfxTiOZFzjUSBrnoSISODdRkpwwJtTW0uRTh6=
+cxNuyFS11L8C1WvE-2BkbX5hIP6llUldB8ZUcHvJl-2FMBxSbRh6L0S3RomjLEQl-2FhZAYe9-2=
+BPmH7xE9PmHM-2FUPp6C9vEhm4m825WL-2FGD5vSloBiS-2BmqNWOmU5V38C7ETzI7vRE7Kosc5=
+E5igQcFCOhr8H1u5Q-2FWd0waYHsFn3-2FjvUH5n21PH-2BNv3AqLsKa6bHaDd-2F0uXOQ8cBAe=
+4BlqeqcIMFR68zTnbMDStmJn9Tr5sUbaZJG0Q-3D-3D" style=3D"color:#28A9E1">EC2</a=
+></td>
+                  <td class=3D"table-total-with-percent fixedcol number-cel=
+l" style=3D"width:60px;text-align:right;font-size:14px;padding:10px 7px 10p=
+x 7px;border-top:1px solid #cccccc;border-right:1px solid #cccccc;border-bo=
+ttom:1px solid #cccccc;background-color:#efefef;border-left:1px solid #cccc=
+cc">
+                    $2,706.94
+                  </td>
+                </tr>
+<tr style=3D"background-color:#fafafa">
+<td style=3D"padding:10px 7px 10px 7px;font-size:14px;border-bottom:1px sol=
+id #dedede;background-color:#f6f6f6"><a href=3D"http://email.cloudability.c=
+om/wf/click?upn=3DbykbX8G3gUiDXfdMsITU-2FVlLhKZvSE2F-2BzGLrLmTbmSE8rWy7JElT=
+uSs5KAjJ5Ruyc-2FGuwsfNnCv9il3ZEZBvg-3D-3D_oKpt57ioMN0MR7Bz-2BGA9MCfSK6w-2B4=
+cZuv-2B0myR3bLifyg59pBGf9m4uKglOGY0wpVYfxTiOZFzjUSBrnoSISODdRkpwwJtTW0uRTh6=
+cxNuyFS11L8C1WvE-2BkbX5hIP6llUldB8ZUcHvJl-2FMBxSbRh6L0S3RomjLEQl-2FhZAYe9-2=
+BPGcNpazO7Mf1bwKAmWCoV-2BIid8O5WikE7acSm3A6luKrXftEAOupAfbPPQ1jp-2FdZW9sZNv=
+Tbcta40lBrtq332cwW4O6b8sfRKCP-2Fs-2FgsJr9cW80Y0ctTz24PS0xEwFiBuMakvKnnSV-2F=
+7bnSOLopB-2B93OmfIDqNNX-2BIOSIrKcd9gA-3D-3D" style=3D"color:#28A9E1">RDS</a=
+></td>
+                  <td class=3D"table-total-with-percent fixedcol number-cel=
+l" style=3D"width:60px;text-align:right;font-size:14px;padding:10px 7px 10p=
+x 7px;border-top:1px solid #cccccc;border-right:1px solid #cccccc;border-bo=
+ttom:1px solid #cccccc;background-color:#efefef;border-left:1px solid #cccc=
+cc">
+                    $1,579.99
+                  </td>
+                </tr>
+<tr style=3D"background-color:#fafafa">
+<td style=3D"padding:10px 7px 10px 7px;font-size:14px;border-bottom:1px sol=
+id #dedede;background-color:#f6f6f6"><a href=3D"http://email.cloudability.c=
+om/wf/click?upn=3DbykbX8G3gUiDXfdMsITU-2FVlLhKZvSE2F-2BzGLrLmTbmSE8rWy7JElT=
+uSs5KAjJ5Ru3w-2F9XYKDcFtjPmQrTIg-2BRQ-3D-3D_oKpt57ioMN0MR7Bz-2BGA9MCfSK6w-2=
+B4cZuv-2B0myR3bLifyg59pBGf9m4uKglOGY0wpVYfxTiOZFzjUSBrnoSISODdRkpwwJtTW0uRT=
+h6cxNuyFS11L8C1WvE-2BkbX5hIP6llUldB8ZUcHvJl-2FMBxSbRh6L0S3RomjLEQl-2FhZAYe9=
+-2BPfOaLyI8r8sOB9yGWMAqbSLU0JGN1jnRreD8ONGWz8nUb5CQuzg3-2B4nSVgiVtUg-2BiCON=
+B2fk9NSROk7FHwC9MGeP93-2B9QIrvkRoPWof88gKLYBvqWoBACWlCdAjMDVAox66DCGFGYVJx9=
+Wajxy3jiagmceBY0czZ7gFdR6MveZGQ-3D-3D" style=3D"color:#28A9E1">AWS Data Tra=
+nsfer</a></td>
+                  <td class=3D"table-total-with-percent fixedcol number-cel=
+l" style=3D"width:60px;text-align:right;font-size:14px;padding:10px 7px 10p=
+x 7px;border-top:1px solid #cccccc;border-right:1px solid #cccccc;border-bo=
+ttom:1px solid #cccccc;background-color:#efefef;border-left:1px solid #cccc=
+cc">
+                    $9.50
+                  </td>
+                </tr>
+<tr style=3D"background-color:#fafafa">
+<td style=3D"padding:10px 7px 10px 7px;font-size:14px;border-bottom:1px sol=
+id #dedede;background-color:#f6f6f6"><a href=3D"http://email.cloudability.c=
+om/wf/click?upn=3DbykbX8G3gUiDXfdMsITU-2FVlLhKZvSE2F-2BzGLrLmTbmSE8rWy7JElT=
+uSs5KAjJ5RuxoRJfrk9hl2xfSVOGO-2FKsQ-3D-3D_oKpt57ioMN0MR7Bz-2BGA9MCfSK6w-2B4=
+cZuv-2B0myR3bLifyg59pBGf9m4uKglOGY0wpVYfxTiOZFzjUSBrnoSISODdRkpwwJtTW0uRTh6=
+cxNuyFS11L8C1WvE-2BkbX5hIP6llUldB8ZUcHvJl-2FMBxSbRh6L0S3RomjLEQl-2FhZAYe9-2=
+BPAluN0177sdn-2BwiqwgQR3dsTkURzVEDyi8AEmPuBtUnUSVt0qVnapcRLryBi-2BmiI81obXc=
+hnIakPBdU939XD3Bo-2F4RG2-2BOjZYItvKcxydJ0DcP385u1UNMJuPzW-2BbmY3O7CQiZ0vJ7f=
+2yPGYyXRfvJ-2FJaXuNTIuna1Ni30wQgr-2Bw-3D-3D" style=3D"color:#28A9E1">S3</a>=
+</td>
+                  <td class=3D"table-total-with-percent fixedcol number-cel=
+l" style=3D"width:60px;text-align:right;font-size:14px;padding:10px 7px 10p=
+x 7px;border-top:1px solid #cccccc;border-right:1px solid #cccccc;border-bo=
+ttom:1px solid #cccccc;background-color:#efefef;border-left:1px solid #cccc=
+cc">
+                    $7.77
+                  </td>
+                </tr>
+<tr style=3D"background-color:#fafafa">
+<td style=3D"padding:10px 7px 10px 7px;font-size:14px;border-bottom:1px sol=
+id #dedede;background-color:#f6f6f6"><a href=3D"http://email.cloudability.c=
+om/wf/click?upn=3DbykbX8G3gUiDXfdMsITU-2FVlLhKZvSE2F-2BzGLrLmTbmSE8rWy7JElT=
+uSs5KAjJ5RuT6YSJPNlDweRMbUWJ8wOdg-3D-3D_oKpt57ioMN0MR7Bz-2BGA9MCfSK6w-2B4cZ=
+uv-2B0myR3bLifyg59pBGf9m4uKglOGY0wpVYfxTiOZFzjUSBrnoSISODdRkpwwJtTW0uRTh6cx=
+NuyFS11L8C1WvE-2BkbX5hIP6llUldB8ZUcHvJl-2FMBxSbRh6L0S3RomjLEQl-2FhZAYe9-2BM=
+03ub8AARm9JERZFaPRML-2BRTPGTvo6lwvwzIxnVnj0KhYdb2oS-2FosAJdIxsZTDd1w10iKBQ6=
+lt8j316kNB05QVIPd-2B8pDIVU6jqv7mXCiaCAbiSrnVnncfX6tTfw7PJMkbfRFQqibBRb7W0lp=
+4WmEPcBBXvOPWcu04vcDCjFNT-2BA-3D-3D" style=3D"color:#28A9E1">Route 53</a></=
+td>
+                  <td class=3D"table-total-with-percent fixedcol number-cel=
+l" style=3D"width:60px;text-align:right;font-size:14px;padding:10px 7px 10p=
+x 7px;border-top:1px solid #cccccc;border-right:1px solid #cccccc;border-bo=
+ttom:1px solid #cccccc;background-color:#efefef;border-left:1px solid #cccc=
+cc">
+                    $4.84
+                  </td>
+                </tr>
+</table>
+<p class=3D"view-all" style=3D"margin-top:0;line-height:1.3em;font-size:18p=
+x;margin:20px 0 0 0"><a href=3D"http://email.cloudability.com/wf/click?upn=
+=3DbykbX8G3gUiDXfdMsITU-2FVlLhKZvSE2F-2BzGLrLmTbmSE8rWy7JElTuSs5KAjJ5RuQxIe=
+gJUP9i37TZ7R-2FmSDUQ-3D-3D_oKpt57ioMN0MR7Bz-2BGA9MCfSK6w-2B4cZuv-2B0myR3bLi=
+fyg59pBGf9m4uKglOGY0wpVYfxTiOZFzjUSBrnoSISODdRkpwwJtTW0uRTh6cxNuyFS11L8C1Wv=
+E-2BkbX5hIP6llUldB8ZUcHvJl-2FMBxSbRh6L0S3RomjLEQl-2FhZAYe9-2BNRfE-2BPsMM0xX=
+jN36Hx-2B4AmH0bsy75lttv6WWTjAcVxICziFrc4eWzJ-2F7RzJEuipmUa6vqhTv7P86Ajk5YeH=
+WS4sgko366SPBhWlw0e4RrYL7F-2BuPmGHxP58L1n9bccKngo9OalYewQZdFjRd-2ByhpjS48v9=
+MaLE6H3fHBt0nFD3qw-3D-3D" style=3D"font-size:17px;color:#27a8e0">View all s=
+ervices</a></p>
+          </td>
+        </tr></table>
+</td>
+  </tr>
+<!-- end services table --><tr><td height=3D"20">=C2=A0</td></tr>
+<!-- begin usage area --><tr>
+<td>
+      <h2 style=3D"margin-top:0;padding:0;font-weight:normal;line-height:1.=
+4em;font-size:28px;margin-bottom:5px;color:#333333;margin:0">Amazon usage</=
+h2>
+      <p class=3D"sub-title" style=3D"margin-top:0;line-height:1.3em;font-w=
+eight:normal;font-size:16px;margin:0">Here is the daily breakdown of your n=
+ewest AWS instances. We are currently tracking data on <span style=3D"color=
+: #333333;">2</span> of your <span style=3D"color: #333333;">2</span> AWS a=
+ccounts.</p>
+    </td>
+  </tr>
+<tr><td height=3D"20">=C2=A0</td></tr>
+<!-- start usage summaries --><tr>
+<td>
+      <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" style=3D"bo=
+rder-collapse:collapse"><tbody><tr>
+<!-- start utilization hours summary --><td width=3D"49%">
+              <table class=3D"usage-summary" width=3D"100%" cellpadding=3D"=
+0" cellspacing=3D"0" style=3D"border-collapse:collapse;border:1px solid #de=
+dede">
+<tr>
+<td height=3D"90" valign=3D"middle" style=3D"text-align:center">
+                    <h6 style=3D"margin-top:0;padding:0;font-size:13px;line=
+-height:1.4em;margin:0;font-weight:600;color:#999999">UTILIZATION HOURS</h6>
+                    <h1 class=3D"good-news" style=3D"margin-top:0;padding:0=
+;line-height:100%;font-size:45px;font-weight:600;color:#40c159;margin:0">21=
+,967</h1>
+                  </td>
+                </tr>
+<tr class=3D"change-row">
+<td style=3D"text-align:center;padding:7px 0 5px 0;border-top:1px solid #de=
+dede;font-size:13px;background-color:#f4f4f4">
+                    <span class=3D"good-news" style=3D"color:#40c159">
+                      -629 (-3%)</span> compared to May.
+                  </td>
+                </tr>
+</table>
+</td>
+            <!-- end utilization hours summary -->
+
+            <td width=3D"2%">=C2=A0</td>
+
+            <!-- start active instances summary -->
+            <td width=3D"49%">
+                <table class=3D"usage-summary" width=3D"100%" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"border-collapse:collapse;border:1px solid=
+ #dedede">
+<tr>
+<td height=3D"90" valign=3D"middle" style=3D"text-align:center">
+                      <h6 style=3D"margin-top:0;padding:0;font-size:13px;li=
+ne-height:1.4em;margin:0;font-weight:600;color:#999999">ACTIVE INSTANCES</h=
+6>
+                      <h1 class=3D"bad-news" style=3D"margin-top:0;padding:=
+0;line-height:100%;font-size:45px;font-weight:600;color:#dd2c2c;margin:0">4=
+2</h1>
+                    </td>
+                  </tr>
+<tr class=3D"change-row">
+<td style=3D"text-align:center;padding:7px 0 5px 0;border-top:1px solid #de=
+dede;font-size:13px;background-color:#f4f4f4">
+                      <span class=3D"bad-news" style=3D"color:#dd2c2c">
+                        2</span> since yesterday
+                    </td>
+                  </tr>
+</table>
+</td>
+              <!-- start active instances summary -->
+            </tr></tbody></table>
+</td>
+    </tr>
+<!-- end usage summaries --><tr><td height=3D"20">=C2=A0</td></tr>
+<tr>
+<td class=3D"tabular-data" style=3D"width:558px;padding:20px;border:1px sol=
+id #dedede">
+        <table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"=
+border-collapse:collapse"><tr>
+<td>
+              <h3 style=3D"margin-top:0;padding:0;font-weight:normal;color:=
+#666666;font-size:22px;line-height:1.4em;margin:0;margin-bottom:10px">Top 1=
+0 Newest Instances</h3>
+              <table class=3D"table" width=3D"100%" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"border-collapse:collapse">
+<tr class=3D"thead" style=3D"background-color:transparent">
+<th style=3D"vertical-align:bottom;text-align:left;text-transform:uppercase=
+;color:#B8B8B8;font-size:12px;font-weight:bold;font-style:normal;padding:10=
+px 15px 10px 15px;border-bottom:1px solid #dedede">INSTANCE</th>
+                  <th style=3D"vertical-align:bottom;text-align:left;text-t=
+ransform:uppercase;color:#B8B8B8;font-size:12px;font-weight:bold;font-style=
+:normal;padding:10px 15px 10px 15px;border-bottom:1px solid #dedede">SIZE</=
+th>
+                  <th class=3D"fixedcol nowrap" style=3D"width:60px;font-we=
+ight:bold;text-transform:uppercase;color:#B8B8B8;font-size:12px;text-align:=
+left;font-style:normal;padding:10px 15px 10px 15px;border-bottom:1px solid =
+#dedede;vertical-align:bottom">CPU UTIL</th>
+                  <th class=3D"fixedcol" style=3D"width:60px;font-weight:bo=
+ld;text-transform:uppercase;color:#B8B8B8;font-size:12px;text-align:left;fo=
+nt-style:normal;padding:10px 15px 10px 15px;border-bottom:1px solid #dedede=
+;vertical-align:bottom">DISK I/O</th>
+                  <th class=3D"fixedcol sorter" style=3D"width:60px;font-st=
+yle:normal;text-transform:uppercase;font-size:12px;font-weight:bold;text-al=
+ign:left;vertical-align:bottom;border-bottom:1px solid #dedede;padding:10px=
+ 15px 10px 15px;border:1px solid #cccccc;color:#28A9E1">AGE <br> (DAYS) =E2=
+=96=B2</th>
+                </tr>
+<tr style=3D"background-color:#fafafa">
+<td style=3D"padding:10px 7px 10px 7px;font-size:14px;border-bottom:1px sol=
+id #dedede;background-color:#f6f6f6">
+                    i-e51e92e8
+                    <br><span class=3D"smaller" style=3D"font-size:13px;fon=
+t-weight:normal">ccdeaws-portal-hml-s3</span>
+                  </td>
+                  <td style=3D"padding:10px 7px 10px 7px;font-size:14px;bor=
+der-bottom:1px solid #dedede;background-color:#f6f6f6">m1.small</td>
+                  <td class=3D"number-cell" style=3D"text-align:right;borde=
+r-bottom:1px solid #dedede;font-size:14px;padding:10px 7px 10px 7px;backgro=
+und-color:#f6f6f6">1.65%</td>
+                  <td class=3D"number-cell" style=3D"text-align:right;borde=
+r-bottom:1px solid #dedede;font-size:14px;padding:10px 7px 10px 7px;backgro=
+und-color:#f6f6f6">404 KB</td>
+                  <td class=3D"table-total number-cell" style=3D"text-align=
+:right;font-size:14px;border-bottom:1px solid #dedede;padding:10px 7px 10px=
+ 7px;border:1px solid #cccccc;background-color:#efefef">1</td>
+                </tr>
+<tr style=3D"background-color:#fafafa">
+<td style=3D"padding:10px 7px 10px 7px;font-size:14px;border-bottom:1px sol=
+id #dedede;background-color:#f6f6f6">
+                    i-7f338f74
+                    <br><span class=3D"smaller" style=3D"font-size:13px;fon=
+t-weight:normal">ccdeaws-portal-hml-s3</span>
+                  </td>
+                  <td style=3D"padding:10px 7px 10px 7px;font-size:14px;bor=
+der-bottom:1px solid #dedede;background-color:#f6f6f6">t1.micro</td>
+                  <td class=3D"number-cell" style=3D"text-align:right;borde=
+r-bottom:1px solid #dedede;font-size:14px;padding:10px 7px 10px 7px;backgro=
+und-color:#f6f6f6">20.02%</td>
+                  <td class=3D"number-cell" style=3D"text-align:right;borde=
+r-bottom:1px solid #dedede;font-size:14px;padding:10px 7px 10px 7px;backgro=
+und-color:#f6f6f6">0 Bytes</td>
+                  <td class=3D"table-total number-cell" style=3D"text-align=
+:right;font-size:14px;border-bottom:1px solid #dedede;padding:10px 7px 10px=
+ 7px;border:1px solid #cccccc;background-color:#efefef">1</td>
+                </tr>
+<tr style=3D"background-color:#fafafa">
+<td style=3D"padding:10px 7px 10px 7px;font-size:14px;border-bottom:1px sol=
+id #dedede;background-color:#f6f6f6">
+                    i-83fa0397
+                    <br><span class=3D"smaller" style=3D"font-size:13px;fon=
+t-weight:normal">ccdeaws-dj</span>
+                  </td>
+                  <td style=3D"padding:10px 7px 10px 7px;font-size:14px;bor=
+der-bottom:1px solid #dedede;background-color:#f6f6f6">m1.medium</td>
+                  <td class=3D"number-cell" style=3D"text-align:right;borde=
+r-bottom:1px solid #dedede;font-size:14px;padding:10px 7px 10px 7px;backgro=
+und-color:#f6f6f6">6.88%</td>
+                  <td class=3D"number-cell" style=3D"text-align:right;borde=
+r-bottom:1px solid #dedede;font-size:14px;padding:10px 7px 10px 7px;backgro=
+und-color:#f6f6f6">0 Bytes</td>
+                  <td class=3D"table-total number-cell" style=3D"text-align=
+:right;font-size:14px;border-bottom:1px solid #dedede;padding:10px 7px 10px=
+ 7px;border:1px solid #cccccc;background-color:#efefef">3</td>
+                </tr>
+<tr style=3D"background-color:#fafafa">
+<td style=3D"padding:10px 7px 10px 7px;font-size:14px;border-bottom:1px sol=
+id #dedede;background-color:#f6f6f6">
+                    i-318e7725
+                    <br><span class=3D"smaller" style=3D"font-size:13px;fon=
+t-weight:normal">artsoft-dj</span>
+                  </td>
+                  <td style=3D"padding:10px 7px 10px 7px;font-size:14px;bor=
+der-bottom:1px solid #dedede;background-color:#f6f6f6">m1.medium</td>
+                  <td class=3D"number-cell" style=3D"text-align:right;borde=
+r-bottom:1px solid #dedede;font-size:14px;padding:10px 7px 10px 7px;backgro=
+und-color:#f6f6f6">0.22%</td>
+                  <td class=3D"number-cell" style=3D"text-align:right;borde=
+r-bottom:1px solid #dedede;font-size:14px;padding:10px 7px 10px 7px;backgro=
+und-color:#f6f6f6">0 Bytes</td>
+                  <td class=3D"table-total number-cell" style=3D"text-align=
+:right;font-size:14px;border-bottom:1px solid #dedede;padding:10px 7px 10px=
+ 7px;border:1px solid #cccccc;background-color:#efefef">4</td>
+                </tr>
+<tr style=3D"background-color:#fafafa">
+<td style=3D"padding:10px 7px 10px 7px;font-size:14px;border-bottom:1px sol=
+id #dedede;background-color:#f6f6f6">
+                    i-ce25d9db
+                    <br><span class=3D"smaller" style=3D"font-size:13px;fon=
+t-weight:normal">ledware-dj</span>
+                  </td>
+                  <td style=3D"padding:10px 7px 10px 7px;font-size:14px;bor=
+der-bottom:1px solid #dedede;background-color:#f6f6f6">m1.medium</td>
+                  <td class=3D"number-cell" style=3D"text-align:right;borde=
+r-bottom:1px solid #dedede;font-size:14px;padding:10px 7px 10px 7px;backgro=
+und-color:#f6f6f6">0.23%</td>
+                  <td class=3D"number-cell" style=3D"text-align:right;borde=
+r-bottom:1px solid #dedede;font-size:14px;padding:10px 7px 10px 7px;backgro=
+und-color:#f6f6f6">0 Bytes</td>
+                  <td class=3D"table-total number-cell" style=3D"text-align=
+:right;font-size:14px;border-bottom:1px solid #dedede;padding:10px 7px 10px=
+ 7px;border:1px solid #cccccc;background-color:#efefef">4</td>
+                </tr>
+<tr style=3D"background-color:#fafafa">
+<td style=3D"padding:10px 7px 10px 7px;font-size:14px;border-bottom:1px sol=
+id #dedede;background-color:#f6f6f6">
+                    i-16817802
+                    <br><span class=3D"smaller" style=3D"font-size:13px;fon=
+t-weight:normal">ledware-ms</span>
+                  </td>
+                  <td style=3D"padding:10px 7px 10px 7px;font-size:14px;bor=
+der-bottom:1px solid #dedede;background-color:#f6f6f6">m1.small</td>
+                  <td class=3D"number-cell" style=3D"text-align:right;borde=
+r-bottom:1px solid #dedede;font-size:14px;padding:10px 7px 10px 7px;backgro=
+und-color:#f6f6f6">0.10%</td>
+                  <td class=3D"number-cell" style=3D"text-align:right;borde=
+r-bottom:1px solid #dedede;font-size:14px;padding:10px 7px 10px 7px;backgro=
+und-color:#f6f6f6">11.6 MB</td>
+                  <td class=3D"table-total number-cell" style=3D"text-align=
+:right;font-size:14px;border-bottom:1px solid #dedede;padding:10px 7px 10px=
+ 7px;border:1px solid #cccccc;background-color:#efefef">4</td>
+                </tr>
+<tr style=3D"background-color:#fafafa">
+<td style=3D"padding:10px 7px 10px 7px;font-size:14px;border-bottom:1px sol=
+id #dedede;background-color:#f6f6f6">
+                    i-c925d9dc
+                    <br><span class=3D"smaller" style=3D"font-size:13px;fon=
+t-weight:normal">artsoft-ms</span>
+                  </td>
+                  <td style=3D"padding:10px 7px 10px 7px;font-size:14px;bor=
+der-bottom:1px solid #dedede;background-color:#f6f6f6">m1.small</td>
+                  <td class=3D"number-cell" style=3D"text-align:right;borde=
+r-bottom:1px solid #dedede;font-size:14px;padding:10px 7px 10px 7px;backgro=
+und-color:#f6f6f6">0.18%</td>
+                  <td class=3D"number-cell" style=3D"text-align:right;borde=
+r-bottom:1px solid #dedede;font-size:14px;padding:10px 7px 10px 7px;backgro=
+und-color:#f6f6f6">11.2 MB</td>
+                  <td class=3D"table-total number-cell" style=3D"text-align=
+:right;font-size:14px;border-bottom:1px solid #dedede;padding:10px 7px 10px=
+ 7px;border:1px solid #cccccc;background-color:#efefef">4</td>
+                </tr>
+<tr style=3D"background-color:#fafafa">
+<td style=3D"padding:10px 7px 10px 7px;font-size:14px;border-bottom:1px sol=
+id #dedede;background-color:#f6f6f6">
+                    i-9737cb82
+                    <br><span class=3D"smaller" style=3D"font-size:13px;fon=
+t-weight:normal">ccdeaws-portal</span>
+                  </td>
+                  <td style=3D"padding:10px 7px 10px 7px;font-size:14px;bor=
+der-bottom:1px solid #dedede;background-color:#f6f6f6">m1.medium</td>
+                  <td class=3D"number-cell" style=3D"text-align:right;borde=
+r-bottom:1px solid #dedede;font-size:14px;padding:10px 7px 10px 7px;backgro=
+und-color:#f6f6f6">1.49%</td>
+                  <td class=3D"number-cell" style=3D"text-align:right;borde=
+r-bottom:1px solid #dedede;font-size:14px;padding:10px 7px 10px 7px;backgro=
+und-color:#f6f6f6">0 Bytes</td>
+                  <td class=3D"table-total number-cell" style=3D"text-align=
+:right;font-size:14px;border-bottom:1px solid #dedede;padding:10px 7px 10px=
+ 7px;border:1px solid #cccccc;background-color:#efefef">4</td>
+                </tr>
+<tr style=3D"background-color:#fafafa">
+<td style=3D"padding:10px 7px 10px 7px;font-size:14px;border-bottom:1px sol=
+id #dedede;background-color:#f6f6f6">
+                    i-6930cc7c
+                    <br><span class=3D"smaller" style=3D"font-size:13px;fon=
+t-weight:normal">ledware-portal</span>
+                  </td>
+                  <td style=3D"padding:10px 7px 10px 7px;font-size:14px;bor=
+der-bottom:1px solid #dedede;background-color:#f6f6f6">m1.small</td>
+                  <td class=3D"number-cell" style=3D"text-align:right;borde=
+r-bottom:1px solid #dedede;font-size:14px;padding:10px 7px 10px 7px;backgro=
+und-color:#f6f6f6">2.21%</td>
+                  <td class=3D"number-cell" style=3D"text-align:right;borde=
+r-bottom:1px solid #dedede;font-size:14px;padding:10px 7px 10px 7px;backgro=
+und-color:#f6f6f6">10.5 MB</td>
+                  <td class=3D"table-total number-cell" style=3D"text-align=
+:right;font-size:14px;border-bottom:1px solid #dedede;padding:10px 7px 10px=
+ 7px;border:1px solid #cccccc;background-color:#efefef">4</td>
+                </tr>
+<tr style=3D"background-color:#fafafa">
+<td style=3D"padding:10px 7px 10px 7px;font-size:14px;border-bottom:1px sol=
+id #dedede;background-color:#f6f6f6">
+                    i-6237cb77
+                    <br><span class=3D"smaller" style=3D"font-size:13px;fon=
+t-weight:normal">artsoft-portal</span>
+                  </td>
+                  <td style=3D"padding:10px 7px 10px 7px;font-size:14px;bor=
+der-bottom:1px solid #dedede;background-color:#f6f6f6">m1.small</td>
+                  <td class=3D"number-cell" style=3D"text-align:right;borde=
+r-bottom:1px solid #dedede;font-size:14px;padding:10px 7px 10px 7px;backgro=
+und-color:#f6f6f6">2.06%</td>
+                  <td class=3D"number-cell" style=3D"text-align:right;borde=
+r-bottom:1px solid #dedede;font-size:14px;padding:10px 7px 10px 7px;backgro=
+und-color:#f6f6f6">22.6 MB</td>
+                  <td class=3D"table-total number-cell" style=3D"text-align=
+:right;font-size:14px;border-bottom:1px solid #dedede;padding:10px 7px 10px=
+ 7px;border:1px solid #cccccc;background-color:#efefef">4</td>
+                </tr>
+</table>
+</td>
+          </tr></table>
+</td>
+    </tr>
+<!-- end usage area --><tr><td height=3D"20">=C2=A0</td></tr>
+<tr>
+<td>
+      <p class=3D"call-to-action" style=3D"margin-top:0;line-height:1.3em;f=
+ont-size:17px;margin:0">Get more detail - <a href=3D"http://email.cloudabil=
+ity.com/wf/click?upn=3DbykbX8G3gUiDXfdMsITU-2FVlLhKZvSE2F-2BzGLrLmTbmRzxBMw=
+IfkiBUkaTr-2FbXaEQ_oKpt57ioMN0MR7Bz-2BGA9MCfSK6w-2B4cZuv-2B0myR3bLifyg59pBG=
+f9m4uKglOGY0wpVYfxTiOZFzjUSBrnoSISODdRkpwwJtTW0uRTh6cxNuyFS11L8C1WvE-2BkbX5=
+hIP6llUldB8ZUcHvJl-2FMBxSbRh6L0S3RomjLEQl-2FhZAYe9-2BMX5d6lM3OXSNQuZtM-2FM6=
+v9YsBKA5z9DTAwnIu4PTWxRpi6lvb4aaLZ-2F-2F0m3ZRj52h9SWpf2Iu-2FL6XGcsaJZ66me1l=
+J56cgMMj7aOJedRHwHVpaYPyMyYl71D3IVIR7yJ7443R2aCphv8vTG8IC5FNEk-2BQawwBvehJk=
+Efp-2B-2FFXO8g-3D-3D" style=3D"color:#27a8e0">View the Dashboard</a></p>
+    </td>
+  </tr>
+</table>
+</td>
+                </tr></table>
+<!-- #content-structure -->
+</td>
+          </tr>
+<!-- #body -->
+</table>
+<!-- #page --><table id=3D"footer" align=3D"center" style=3D"font-size:14px=
+;margin:0 auto;color:#b3b2b2;width:600px;border-collapse:collapse;border-to=
+p:2px solid #efefef;margin-top:20px;margin-bottom:30px"><tr>
+<td id=3D"legal-copy" style=3D"padding-top:10px">
+              =C2=A9 2014 Cloudability Inc. All Rights Reserved.
+            </td>
+            <td id=3D"social-links" style=3D"text-align:right;padding-top:1=
+0px">
+              <a href=3D"http://email.cloudability.com/wf/click?upn=3DXE8qI=
+SPAWfszD22Ca1YvdV7-2B-2FS7XkrKp4m4YKMM8OeU0JM50a9Oh-2FR7cmBSS4OTV_oKpt57ioM=
+N0MR7Bz-2BGA9MCfSK6w-2B4cZuv-2B0myR3bLifyg59pBGf9m4uKglOGY0wpVYfxTiOZFzjUSB=
+rnoSISODdRkpwwJtTW0uRTh6cxNuyFS11L8C1WvE-2BkbX5hIP6llUldB8ZUcHvJl-2FMBxSbRh=
+6L0S3RomjLEQl-2FhZAYe9-2BPKXTM4hmQIIACZGmiHkE6Mk57meixfEBxzeOkgF0N-2BiEULdQ=
+nvjAlOWumwzpaeMtWByOBAPd9QjR6Gh-2FB64rrgyHnwiipTMcgguS9I2XpcKeSQ-2FgUto0H2-=
+2FJq7iuALbfA0F3TS-2FFSxtbjFMSc9UUX0hrjBfIgMnbWlogbmoJpnoQ-3D-3D" style=3D"c=
+olor:#27a8e0"><img alt=3D"Twitter" height=3D"21" src=3D"https://app.cloudab=
+ility.com/assets/email/social-twitter-afdaa9932cbd5b87a3c38e9df98b1136.gif"=
+ width=3D"21" style=3D"border:0;margin-left:3px"></a>
+              <a href=3D"http://email.cloudability.com/wf/click?upn=3D85Ict=
+Bmsd44nI8GCcQWqiBN-2BviGTH900VUsvH0pOS7iRW9rLj-2BY-2FSiseBq2V9IbJ_oKpt57ioM=
+N0MR7Bz-2BGA9MCfSK6w-2B4cZuv-2B0myR3bLifyg59pBGf9m4uKglOGY0wpVYfxTiOZFzjUSB=
+rnoSISODdRkpwwJtTW0uRTh6cxNuyFS11L8C1WvE-2BkbX5hIP6llUldB8ZUcHvJl-2FMBxSbRh=
+6L0S3RomjLEQl-2FhZAYe9-2BMQSNQOawZTGYD-2FWdMNiPw-2Bcls2iGX3FhEt0v2PVAAMfg7K=
+RnzwJPmEj25bAjV5zQZBJa1WQfESdZY5XZTBrFJerISTDxo1RGjIsu9tMvdaDbztyTMjFWIze76=
+1ECKJQGALhNVSpOmC7gsYDNATeRGIZ4ns7oudxNs2v-2BEEwMxVUQ-3D-3D" style=3D"color=
+:#27a8e0"><img alt=3D"Facebook" height=3D"21" src=3D"https://app.cloudabili=
+ty.com/assets/email/social-facebook-4db836cbcc5a2dabdcd54bb52139e1bc.gif" w=
+idth=3D"21" style=3D"border:0;margin-left:3px"></a>
+              <a href=3D"http://email.cloudability.com/wf/click?upn=3D85Ict=
+Bmsd44nI8GCcQWqiKg15DmMnvOn-2BnsPGVSwySoFUCcixOt4GGuQGVP8UE47zX-2FQKe-2Fk6E=
+dcTCkhKYBFjg-3D-3D_oKpt57ioMN0MR7Bz-2BGA9MCfSK6w-2B4cZuv-2B0myR3bLifyg59pBG=
+f9m4uKglOGY0wpVYfxTiOZFzjUSBrnoSISODdRkpwwJtTW0uRTh6cxNuyFS11L8C1WvE-2BkbX5=
+hIP6llUldB8ZUcHvJl-2FMBxSbRh6L0S3RomjLEQl-2FhZAYe9-2BOMTEp69mHn0f2zAZ3FSMdb=
+YFtYsQcNf5KAYCnn8fWxXKZQRvqQgBexBBpKUanaanWqKtK0Lm4BbeAVmli6bCryGBb7TT3LV-2=
+Fph9Ids1Md-2F6mIS89Mod7ko1itPaENNxJLfNsGqDnMGcXjnvdA7ljX-2BLg1GsEVXwMbRF5ZQ=
+DwFzQw-3D-3D" style=3D"color:#27a8e0"><img alt=3D"LinkedIn" height=3D"21" s=
+rc=3D"https://app.cloudability.com/assets/email/social-linkedin-67ef0cfe554=
+08a7ec6b6c471ca2a0776.gif" width=3D"21" style=3D"border:0;margin-left:3px">=
+</a>
+            </td>
+          </tr></table>
+<!-- #footer -->
+</td>
+    </tr></table>
+<!-- #page --><!-- Version: releases/3.1 -->
+
+<img src=3D"http://email.cloudability.com/wf/open?upn=3DoKpt57ioMN0MR7Bz-2B=
+GA9MCfSK6w-2B4cZuv-2B0myR3bLifyg59pBGf9m4uKglOGY0wpVYfxTiOZFzjUSBrnoSISODdR=
+kpwwJtTW0uRTh6cxNuyFS11L8C1WvE-2BkbX5hIP6llUldB8ZUcHvJl-2FMBxSbRh6L0S3RomjL=
+EQl-2FhZAYe9-2BPxGUcUiUtQH3M3coaHh21HBzonyJfEuKu5SdzCCZd-2FTz7IlbEDKSFIWHcr=
+goBueBXdXegoRixX2zmfBr1VFNuqfgaQuxqHSrM14JyfHgDzLx5qxPaYwJfR3Mxh96s1u1aBjOG=
+9Y-2FGfCihmJ8Mg-2FJysfdB2nt4GBQc10C5TW6wFXw-3D-3D" alt=3D"" width=3D"1" hei=
+ght=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !important;=
+border-width:0 !important;margin-top:0 !important;margin-bottom:0 !importan=
+t;margin-right:0 !important;margin-left:0 !important;padding-top:0 !importa=
+nt;padding-bottom:0 !important;padding-right:0 !important;padding-left:0 !i=
+mportant;"/>
+</body>
+</html>
+
+
+----==_mimepart_53a8d745787d4_2113ff0db5bf408538bb--
