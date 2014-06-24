@@ -1,0 +1,12 @@
+.panel.panel-default
+  .panel-heading
+    = title
+  .panel-body
+    %span.current-value
+      = "US$ #{format_number value}"
+    %span.difference
+      = format_variation difference
+    %p.previous-title
+      = previous_title
+      %span.previous-value
+        = format_number previous_value
