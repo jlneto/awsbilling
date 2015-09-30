@@ -2,24 +2,35 @@ class Account < ActiveRecord::Base
   belongs_to :user
   # has_many :users
   has_many :reports
+  has_many :instances
+
+  include Ec2Usage
 
   def s3_region
     'sa-east-1'
   end
 
   def update_billing_data(reference_date)
-    AWS.config(access_key_id: self.access_key, secret_access_key: self.secret, region: self.s3_region)
+
+    Aws.config.update({
+                          region: self.s3_region,
+                          credentials: Aws::Credentials.new(self.access_key, self.secret),
+                      })
+
     year = reference_date.year
     month = reference_date.month.to_s.rjust(2,'0')
     curr_month = "#{self.aws_account_id}-aws-billing-csv-#{year}-#{month}.csv"
 
-    s3 = AWS::S3.new
-    aws_billing_obj = s3.buckets[self.bucket_name].objects[curr_month]
-    csv_data = aws_billing_obj.read
+
+    s3 = Aws::S3::Client.new
+    resp = s3.get_object(bucket:self.bucket_name, key:curr_month)
+    csv_data = resp.body.read
+
     month_values = parse_billing_data(csv_data)
     update_report reference_date, month_values
 
   end
+
 
   def update_report(reference_date, billing_data)
     period = reference_date.beginning_of_month

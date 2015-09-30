@@ -15,6 +15,10 @@
 %p
   %b Secret:
   = @account.secret
+%p
+  %b Responsible User:
+  = @account.user.email
+
 
 = link_to 'Edit', edit_account_path(@account)
 \|

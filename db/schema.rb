@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140623000256) do
+ActiveRecord::Schema.define(version: 20150930205452) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -23,6 +23,26 @@ ActiveRecord::Schema.define(version: 20140623000256) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "instances", force: true do |t|
+    t.integer  "account_id"
+    t.string   "name"
+    t.string   "description"
+    t.string   "instance_id"
+    t.string   "instance_type"
+    t.string   "region"
+    t.string   "availability_zone"
+    t.string   "dns_address"
+    t.string   "public_ip_address"
+    t.string   "public_dns_name"
+    t.string   "state"
+    t.datetime "started_at"
+    t.datetime "stopped_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "instances", ["account_id"], name: "index_instances_on_account_id", using: :btree
 
   create_table "report_lines", force: true do |t|
     t.string   "report_id"
@@ -41,6 +61,9 @@ ActiveRecord::Schema.define(version: 20140623000256) do
     t.decimal  "day_average",          precision: 10, scale: 2
     t.decimal  "previous_day_average", precision: 10, scale: 2
     t.integer  "reference_day"
+    t.decimal  "previous_value",       precision: 10, scale: 2
+    t.decimal  "day_spend",            precision: 10, scale: 2
+    t.decimal  "previous_day_spend",   precision: 10, scale: 2
   end
 
   create_table "users", force: true do |t|

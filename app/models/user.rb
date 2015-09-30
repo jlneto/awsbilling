@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
     Account.where(user_id: self.id).first
   end
 
+  def to_s
+    self.name || self.email
+  end
+
 end

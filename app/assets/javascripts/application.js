@@ -12,6 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require turbolinks
 //= require bootstrap
+//= require pivot/pivot
+//= require pivot/gchart_renderers
+//= require pivot/pivot.pt
 //= require_tree .

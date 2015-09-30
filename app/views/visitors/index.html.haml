@@ -1,3 +1,4 @@
+= javascript_include_tag 'https://www.google.com/jsapi'
 = render :partial => 'accounts/status'
 
 %p
@@ -6,3 +7,37 @@
   %p
     Last update at
     = format_datetime @account.last_update
+
+%h4 Indicadores
+#pivot_instances
+
+%h4 Reservas
+#pivot_reserved
+
+:javascript
+  var instances = #{@instances};
+  //Suporte aos gráficos
+  google.load("visualization", "1", {packages:["corechart", "charteditor"]});
+  $(function(){
+    jQuery("#pivot_instances").pivotUI(
+        instances,
+        {
+            cols: ['instance_type'],
+            rows: ['region'],
+        },
+        false,
+        'pt'
+      );
+  });
+  var reserved = #{@reserved};
+  $(function(){
+    jQuery("#pivot_reserved").pivotUI(
+        reserved,
+        {
+            cols: ['instance_type'],
+            rows: ['region'],
+        },
+        false,
+        'pt'
+      );
+  });
