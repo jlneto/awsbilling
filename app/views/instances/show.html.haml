@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Account:
+  = @instance.account
+%p
+  %b Name:
+  = @instance.name
+%p
+  %b Description:
+  = @instance.description
+%p
+  %b Instance:
+  = @instance.instance_id
+%p
+  %b Instance type:
+  = @instance.instance_type
+%p
+  %b Availability zone:
+  = @instance.availability_zone
+%p
+  %b Dns address:
+  = @instance.dns_address
+%p
+  %b Current address:
+  = @instance.current_address
+
+= link_to 'Edit', edit_instance_path(@instance)
+\|
+= link_to 'Back', instances_path

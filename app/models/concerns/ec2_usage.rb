@@ -1,12 +1,16 @@
 module Ec2Usage
   extend ActiveSupport::Concern
 
-
-  def ec2_instances
+  def set_aws_credentials
     Aws.config.update({
                           region: self.s3_region,
                           credentials: Aws::Credentials.new(self.access_key, self.secret),
                       })
+  end
+
+
+  def ec2_instances
+    set_aws_credentials
     ec2 = Aws::EC2::Client.new
     resp = ec2.describe_regions
 

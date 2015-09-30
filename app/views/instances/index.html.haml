@@ -1,0 +1,38 @@
+%h2 Listing instances
+
+%p= link_to 'Update Instance List', load_from_aws_instances_path, class: 'btn btn-primary'
+
+%table.table
+  %tr
+    %th Name
+    %th Description
+    %th Instance
+    %th Instance type
+    %th Availability zone
+    %th Dns address
+    %th Current address
+    %th
+
+  - @instances.each do |instance|
+    %tr
+      %td= instance.name
+      %td
+        = instance.description
+        = instance.state
+      %td= instance.instance_id
+      %td= instance.instance_type
+      %td= instance.availability_zone
+      %td= instance.dns_address
+      %td= instance.public_ip_address
+      %td
+        = link_to 'Show', instance
+        \|
+        = link_to 'Start', start_instance_path(instance)
+        \|
+        = link_to 'Stop', stop_instance_path(instance)
+        \|
+        = link_to 'Destroy', instance, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Instance', new_instance_path
