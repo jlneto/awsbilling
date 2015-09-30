@@ -18,12 +18,12 @@ class InstancesController < ApplicationController
   end
 
   def start
-    @instance.start
+    flash[:notice] = @instance.start
     redirect_to @instance
   end
 
   def stop
-    @instance.stop
+    flash[:notice] = @instance.stop
     redirect_to @instance
   end
 

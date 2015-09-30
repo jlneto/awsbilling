@@ -2,14 +2,9 @@
   = f.error_notification
 
   .form-inputs
-    = f.association :account
-    = f.input :name
     = f.input :description
-    = f.input :instance_id
-    = f.input :instance_type
-    = f.input :availability_zone
     = f.input :dns_address
-    = f.input :current_address
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: 'btn btn-primary'
+%br

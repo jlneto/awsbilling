@@ -6,33 +6,25 @@
   %tr
     %th Name
     %th Description
+    %th Address
     %th Instance
     %th Instance type
     %th Availability zone
-    %th Dns address
-    %th Current address
-    %th
 
   - @instances.each do |instance|
     %tr
-      %td= instance.name
       %td
-        = instance.description
+        = link_to instance.name, instance
+        %br
         = instance.state
+      %td
+        = link_to 'Start', start_instance_path(instance), class: 'btn btn-sm btn-success' if instance.state == 'stopped'
+        = link_to 'Stop', stop_instance_path(instance), class: 'btn btn-sm btn-danger' if instance.state == 'running'
+      %td
+        = link_to instance.public_ip_address, "http://#{instance.public_ip_address}", target: '_blank' if instance.public_ip_address.present?
+        %br
+        = link_to instance.dns_address, "http://#{instance.dns_address}", target: '_blank' if instance.dns_address.present?
       %td= instance.instance_id
       %td= instance.instance_type
       %td= instance.availability_zone
-      %td= instance.dns_address
-      %td= instance.public_ip_address
-      %td
-        = link_to 'Show', instance
-        \|
-        = link_to 'Start', start_instance_path(instance)
-        \|
-        = link_to 'Stop', stop_instance_path(instance)
-        \|
-        = link_to 'Destroy', instance, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
-
-= link_to 'New Instance', new_instance_path

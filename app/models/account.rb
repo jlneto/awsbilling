@@ -6,6 +6,10 @@ class Account < ActiveRecord::Base
 
   include Ec2Usage
 
+  def to_s
+    self.name
+  end
+
   def s3_region
     'sa-east-1'
   end

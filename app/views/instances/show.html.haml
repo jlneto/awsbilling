@@ -1,11 +1,12 @@
+%h2
+  Instance:
+  = @instance.name
+
 %p#notice= notice
 
 %p
   %b Account:
   = @instance.account
-%p
-  %b Name:
-  = @instance.name
 %p
   %b Description:
   = @instance.description
@@ -22,9 +23,14 @@
   %b Dns address:
   = @instance.dns_address
 %p
-  %b Current address:
-  = @instance.current_address
+  %b Public IP Address:
+  = @instance.public_ip_address
+%p
+  %b Public DNS Name:
+  = @instance.public_dns_name
 
 = link_to 'Edit', edit_instance_path(@instance)
+\|
+= link_to 'Destroy', @instance, :method => :delete, :data => { :confirm => 'Are you sure?' }
 \|
 = link_to 'Back', instances_path
