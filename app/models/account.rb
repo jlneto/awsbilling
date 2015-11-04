@@ -14,6 +14,8 @@ class Account < ActiveRecord::Base
     'sa-east-1'
   end
 
+  require 'zip/zip'
+
   def update_billing_data(reference_date)
 
     Aws.config.update({
@@ -23,66 +25,115 @@ class Account < ActiveRecord::Base
 
     year = reference_date.year
     month = reference_date.month.to_s.rjust(2,'0')
-    curr_month = "#{self.aws_account_id}-aws-billing-csv-#{year}-#{month}.csv"
+    # curr_month = "#{self.aws_account_id}-aws-billing-csv-#{year}-#{month}.csv"
+    curr_month = "#{self.aws_account_id}-aws-billing-detailed-line-items-#{year}-#{month}.csv.zip"
 
 
     s3 = Aws::S3::Client.new
     resp = s3.get_object(bucket:self.bucket_name, key:curr_month)
-    csv_data = resp.body.read
 
-    month_values = parse_billing_data(csv_data)
-    update_report reference_date, month_values
-
+    Zip::InputStream.open(resp.body) do |unzipped|
+      zip_entry = unzipped.get_next_entry
+      csv_data = zip_entry.get_input_stream.read
+      update_report(reference_date, csv_data)
+    end
   end
 
 
-  def update_report(reference_date, billing_data)
+  def update_report(reference_date, csv_data)
     period = reference_date.beginning_of_month
-
     if period == Date.today.beginning_of_month
       day = reference_date.day
     else
       # se não é o mes corrente, days e o numero de dias no mês
       day = reference_date.end_of_month.day
     end
-
     rep = self.reports.where(period:period).first
     rep = self.reports.create(period:period) unless rep
 
+    parse_billing_data(csv_data, rep)
+
     rep.reference_day = day
-    rep.value = billing_data[:total_cost]
 
-    if day > (rep.reference_day || 1 )
-      rep.previous_day_average = rep.day_average
-      rep.previous_value = rep.value
-      rep.previous_day_spend = rep.day_spend
-    end
-
-    if rep.previous_value
-      rep.day_spend = rep.value - rep.previous_value
-    end
-
-    rep.day_average = (rep.value / day).round(2)
     rep.save!
   end
 
 
   require 'csv'
 
-  def parse_billing_data(csv_data)
+  def parse_billing_data(csv_data, report)
     resp = {total_cost:0, linked_accounts: {} }
     csv = CSV.new(csv_data, :headers => true)
+    dates = {}
     csv.to_a.map do |row|
       r = row.to_hash
-      if r['RecordType'] == 'InvoiceTotal'
-        resp[:total_cost] = r['TotalCost'].to_f
-      end
-      if r['RecordType'] == 'AccountTotal'
-        resp[:linked_accounts][r['LinkedAccountName']] = r['TotalCost'].to_f
+      if r['RecordType'] == 'LineItem'
+        service_name = define_service_name(r)
+        rec_date = r['UsageStartDate'].slice(0,10)
+        if (dates[rec_date].present?)
+          report_lines_for_this_date = dates[rec_date]
+        else
+          report_lines_for_this_date = {}
+        end
+        if (report_lines_for_this_date[service_name].present?)
+          report_line = report_lines_for_this_date[service_name]
+        else
+          parsed_date = Date.parse(rec_date, '%Y-%m-%d')
+          report_line = ReportLine.where(:service => service_name).where(:date => parsed_date).first
+          if (report_line.blank?)
+            report_line = ReportLine.new
+            report_line.product_name = r['ProductName']
+            report_line.service = service_name
+            report_line.blended_cost = 0
+            report_line.unblended_cost = 0
+            report_line.date = parsed_date
+          end
+        end
+
+        current_blended_cost = report_line.blended_cost
+        report_line.blended_cost = current_blended_cost + r['BlendedCost'].to_f if r['BlendedCost'].present?
+        current_unblended_cost = report_line.unblended_cost
+        report_line.unblended_cost = current_unblended_cost + r['UnBlendedCost'].to_f if r['UnBlendedCost'].present?
+
+        report_lines_for_this_date[service_name] = report_line
+        dates[rec_date] = report_lines_for_this_date
       end
     end
+
+    report_lines = []
+    dates.each do |date, report_lines_for_this_date|
+      report_lines << report_lines_for_this_date.values
+    end
+
+    report.report_lines = report_lines.flatten
+
     resp
   end
+
+
+  def define_service_name(row)
+    if (row['ProductName'] == 'Amazon Elastic Compute Cloud')
+      usage_type = row['UsageType']
+      if row['UsageType'].downcase.include?('boxusage') || row['UsageType'].downcase.include?('heavyusage') || row['UsageType'].downcase.include?('spotusage')
+          return 'EC2 Instance Usage'
+      elsif row['UsageType'].downcase.include?('cw')
+          return 'EC2 Cloud Watch'
+      elsif row['UsageType'].downcase.include?('ebs')
+          return 'EC2 EBS'
+      elsif row['UsageType'].downcase.include?('datatransfer')
+          return 'EC2 Data Transfer'
+      elsif row['UsageType'].downcase.include?('cloudfront')
+          return 'EC2 CloudFront'
+      elsif row['UsageType'].downcase.include?('dataprocessing') || row['UsageType'].downcase.include?('loadbalancer')
+          return 'EC2 Load Balancer'
+      else
+          return 'EC2 Others'
+      end
+    else
+      return row['ProductName']
+    end
+  end
+
 
   def month_report(date = Date.today)
     period = date.beginning_of_month
@@ -90,33 +141,33 @@ class Account < ActiveRecord::Base
   end
 
   def month_to_date_spend
-    rep =month_report(Date.today)
-    rep.value if rep
+    rep = month_report(Date.today)
+    if rep
+      daily_spends = rep.report_lines.group('date').sum('unblended_cost')
+    end
+    month_spend = hash_values_sum(daily_spends)
+    month_spend
   end
 
   def last_month_to_date_spend
     days = Date.today.day
     rep = month_report(1.month.ago)
-    rep.day_average * days if rep
+    if rep
+      daily_spends = rep.report_lines.group('date').sum('unblended_cost')
+    end
+    last_month_spend = hash_values_sum(daily_spends)
+    last_month_spend
   end
 
   def month_estimate_spend
     rep = month_report(Date.today)
     days_in_month = Date.today.end_of_month.day
-    rep.day_average * days_in_month if rep
+    101010
   end
 
   def last_month_spend
     rep = month_report(1.month.ago)
-    rep.value if rep
-  end
-
-  def calc_change(v1,v2)
-    if v1 and v2 and v1 != 0
-      ((v1-v2)/v1*100).round(1)
-    else
-      nil
-    end
+    101010
   end
 
   def month_change
@@ -129,12 +180,16 @@ class Account < ActiveRecord::Base
 
   def day_average_spend
     rep = month_report(Date.today)
-    rep.day_average if rep
+    if rep
+      daily_spends = rep.report_lines.group('date').sum('unblended_cost')
+    end
+    daily_average = hash_values_average(daily_spends)
+    daily_average
   end
 
   def previous_average_spend
     rep = month_report(Date.today)
-    rep.previous_day_average if rep
+    101010
   end
 
   def day_average_change
@@ -143,12 +198,18 @@ class Account < ActiveRecord::Base
 
   def day_spend
     rep = month_report(Date.today)
-    rep.day_spend if rep
+    if rep
+      daily_spends = rep.report_lines.group('date').sum('unblended_cost')
+    end
+    daily_spends[Date.today]
   end
 
   def previous_day_spend
     rep = month_report(Date.today)
-    rep.previous_day_spend if rep
+    if rep
+      daily_spends = rep.report_lines.group('date').sum('unblended_cost')
+    end
+    daily_spends[Date.yesterday]
   end
 
   def day_spend_change
@@ -166,5 +227,31 @@ class Account < ActiveRecord::Base
       UserMailer.daily_report(account).deliver
     end
   end
+
+  private
+    def hash_values_average(h)
+      average = 0
+      h.each do |key, value|
+        average += value
+      end
+      average = average / h.length
+      average
+    end
+
+    def hash_values_sum(h)
+      sum = 0
+      h.each do |key, value|
+        sum += value
+      end
+      sum
+    end
+
+    def calc_change(v1,v2)
+      if v1 and v2 and v1 != 0
+        ((v1-v2)/v1*100).round(1)
+      else
+        nil
+      end
+    end
 
 end

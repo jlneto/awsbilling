@@ -4,6 +4,6 @@
   = current_month
 %br
 = render  'accounts/indicator_panel', title: 'Custo Até o momento', value: @account.month_to_date_spend, difference:  @account.month_to_date_change, previous_title: 'no mês anterior foi de', previous_value: @account.last_month_to_date_spend
-= render  'accounts/indicator_panel', title: 'Valor Estimando para o mês', value:  @account.month_estimate_spend, difference: @account.month_change, previous_title: 'Valor do mês anterior foi', previous_value: @account.last_month_spend
+= render  'accounts/indicator_panel', title: 'Valor Estimado para o mês', value:  @account.month_estimate_spend, difference: @account.month_change, previous_title: 'Valor do mês anterior foi', previous_value: @account.last_month_spend
 = render  'accounts/indicator_panel', title: 'Média diária', value:  @account.day_average_spend, difference: @account.day_average_change, previous_title: 'A média de ontem foi', previous_value: @account.previous_average_spend
 = render  'accounts/indicator_panel', title: 'Custo do dia', value:  @account.day_spend, difference: @account.day_spend_change, previous_title: 'O custo do dia anterior foi', previous_value: @account.previous_day_spend

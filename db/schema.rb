@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930205452) do
+ActiveRecord::Schema.define(version: 20151104194857) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -47,23 +47,20 @@ ActiveRecord::Schema.define(version: 20150930205452) do
   create_table "report_lines", force: true do |t|
     t.string   "report_id"
     t.string   "service"
-    t.decimal  "value",      precision: 10, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "product_name"
+    t.decimal  "blended_cost",   precision: 10, scale: 2
+    t.decimal  "unblended_cost", precision: 10, scale: 2
+    t.date     "date"
   end
 
   create_table "reports", force: true do |t|
     t.string   "account_id"
-    t.string   "period"
-    t.decimal  "value",                precision: 10, scale: 2
+    t.date     "period"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "day_average",          precision: 10, scale: 2
-    t.decimal  "previous_day_average", precision: 10, scale: 2
     t.integer  "reference_day"
-    t.decimal  "previous_value",       precision: 10, scale: 2
-    t.decimal  "day_spend",            precision: 10, scale: 2
-    t.decimal  "previous_day_spend",   precision: 10, scale: 2
   end
 
   create_table "users", force: true do |t|

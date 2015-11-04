@@ -3,7 +3,7 @@ class CreateReports < ActiveRecord::Migration
     create_table :reports do |t|
       t.string :account_id
       t.date :period
-      t.decimal :value, scale: 2
+      t.decimal :value, scale: 2, precision: 10
       t.timestamps
     end
   end
