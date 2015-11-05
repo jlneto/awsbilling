@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104194857) do
+ActiveRecord::Schema.define(version: 20151105133522) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20151104194857) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "accounts", ["user_id"], name: "accounts_user_id_fk", using: :btree
 
   create_table "instances", force: true do |t|
     t.integer  "account_id"
@@ -45,7 +47,6 @@ ActiveRecord::Schema.define(version: 20151104194857) do
   add_index "instances", ["account_id"], name: "index_instances_on_account_id", using: :btree
 
   create_table "report_lines", force: true do |t|
-    t.string   "report_id"
     t.string   "service"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -53,15 +54,24 @@ ActiveRecord::Schema.define(version: 20151104194857) do
     t.decimal  "blended_cost",   precision: 10, scale: 2
     t.decimal  "unblended_cost", precision: 10, scale: 2
     t.date     "date"
+    t.string   "resource_id"
+    t.string   "resource_name"
+    t.string   "az"
+    t.string   "custo"
+    t.integer  "report_id"
   end
 
+  add_index "report_lines", ["report_id"], name: "report_lines_report_id_fk", using: :btree
+
   create_table "reports", force: true do |t|
-    t.string   "account_id"
     t.date     "period"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "reference_day"
+    t.integer  "account_id"
   end
+
+  add_index "reports", ["account_id"], name: "reports_account_id_fk", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -82,5 +92,13 @@ ActiveRecord::Schema.define(version: 20151104194857) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  add_foreign_key "accounts", "users", name: "accounts_user_id_fk"
+
+  add_foreign_key "instances", "accounts", name: "instances_account_id_fk"
+
+  add_foreign_key "report_lines", "reports", name: "report_lines_report_id_fk"
+
+  add_foreign_key "reports", "accounts", name: "reports_account_id_fk"
 
 end

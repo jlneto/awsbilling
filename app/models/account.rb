@@ -26,8 +26,7 @@ class Account < ActiveRecord::Base
     year = reference_date.year
     month = reference_date.month.to_s.rjust(2,'0')
     # curr_month = "#{self.aws_account_id}-aws-billing-csv-#{year}-#{month}.csv"
-    curr_month = "#{self.aws_account_id}-aws-billing-detailed-line-items-#{year}-#{month}.csv.zip"
-
+    curr_month = "#{self.aws_account_id}-aws-billing-detailed-line-items-with-resources-and-tags-#{year}-#{month}.csv.zip"
 
     s3 = Aws::S3::Client.new
     resp = s3.get_object(bucket:self.bucket_name, key:curr_month)
@@ -64,25 +63,39 @@ class Account < ActiveRecord::Base
   def parse_billing_data(csv_data, report)
     resp = {total_cost:0, linked_accounts: {} }
     csv = CSV.new(csv_data, :headers => true)
+    #  hash usado para armazenar a AZ por resource-id pois, dependendo da operacao, um mesmo recurso pode ou nao ter a informacao de AZ na planilha da AWS
+    az_by_resource_id = {}
     dates = {}
     csv.to_a.map do |row|
       r = row.to_hash
       if r['RecordType'] == 'LineItem'
-        service_name = define_service_name(r)
+        # dates
         rec_date = r['UsageStartDate'].slice(0,10)
         if (dates[rec_date].present?)
           report_lines_for_this_date = dates[rec_date]
         else
           report_lines_for_this_date = {}
         end
-        if (report_lines_for_this_date[service_name].present?)
-          report_line = report_lines_for_this_date[service_name]
+        # report_lines
+        # agregando por 'servico-resourceId'. Ex: 'Ec2 EBS-i-87a347'
+        service_name = define_service_name(r)
+        resource_id = r['ResourceId']
+        report_line_key = "#{service_name}-#{resource_id}"
+        if (report_lines_for_this_date[report_line_key].present?)
+          report_line = report_lines_for_this_date[report_line_key]
         else
           parsed_date = Date.parse(rec_date, '%Y-%m-%d')
-          report_line = ReportLine.where(:service => service_name).where(:date => parsed_date).first
+          report_line = ReportLine.where(:service => service_name).where(:resource_id => resource_id).where(:date => parsed_date).first
           if (report_line.blank?)
             report_line = ReportLine.new
             report_line.product_name = r['ProductName']
+            report_line.resource_id = resource_id
+            report_line.resource_name = r['user:Name'] || r['user:name']
+            if (r['AvailabilityZone'].present?)
+              az_by_resource_id[resource_id] = r['AvailabilityZone']
+            end
+            report_line.az = az_by_resource_id[resource_id]
+            report_line.custo = r['user:custo']
             report_line.service = service_name
             report_line.blended_cost = 0
             report_line.unblended_cost = 0
@@ -90,12 +103,10 @@ class Account < ActiveRecord::Base
           end
         end
 
-        current_blended_cost = report_line.blended_cost
-        report_line.blended_cost = current_blended_cost + r['BlendedCost'].to_f if r['BlendedCost'].present?
-        current_unblended_cost = report_line.unblended_cost
-        report_line.unblended_cost = current_unblended_cost + r['UnBlendedCost'].to_f if r['UnBlendedCost'].present?
+        report_line.blended_cost += r['BlendedCost'].to_f if r['BlendedCost'].present?
+        report_line.unblended_cost += r['UnBlendedCost'].to_f if r['UnBlendedCost'].present?
 
-        report_lines_for_this_date[service_name] = report_line
+        report_lines_for_this_date[report_line_key] = report_line
         dates[rec_date] = report_lines_for_this_date
       end
     end
@@ -142,7 +153,7 @@ class Account < ActiveRecord::Base
 
   def month_to_date_spend
     rep = month_report(Date.today)
-    if rep
+    if rep.present?
       daily_spends = rep.report_lines.group('date').sum('unblended_cost')
     end
     month_spend = hash_values_sum(daily_spends)
@@ -152,7 +163,7 @@ class Account < ActiveRecord::Base
   def last_month_to_date_spend
     days = Date.today.day
     rep = month_report(1.month.ago)
-    if rep
+    if rep.present?
       daily_spends = rep.report_lines.group('date').sum('unblended_cost')
     end
     last_month_spend = hash_values_sum(daily_spends)
@@ -180,7 +191,7 @@ class Account < ActiveRecord::Base
 
   def day_average_spend
     rep = month_report(Date.today)
-    if rep
+    if rep.present?
       daily_spends = rep.report_lines.group('date').sum('unblended_cost')
     end
     daily_average = hash_values_average(daily_spends)
@@ -198,18 +209,26 @@ class Account < ActiveRecord::Base
 
   def day_spend
     rep = month_report(Date.today)
-    if rep
+    if rep.present?
       daily_spends = rep.report_lines.group('date').sum('unblended_cost')
     end
-    daily_spends[Date.today]
+    if (daily_spends.present?)
+      daily_spends[Date.today]
+    else
+      0
+    end
   end
 
   def previous_day_spend
     rep = month_report(Date.today)
-    if rep
+    if rep.present?
       daily_spends = rep.report_lines.group('date').sum('unblended_cost')
     end
-    daily_spends[Date.yesterday]
+    if (daily_spends.present?)
+      daily_spends[Date.yesterday]
+    else
+      nil
+    end
   end
 
   def day_spend_change
@@ -231,17 +250,21 @@ class Account < ActiveRecord::Base
   private
     def hash_values_average(h)
       average = 0
-      h.each do |key, value|
-        average += value
+      if (h.present?)
+        h.each do |key, value|
+          average += value
+        end
+        average = average / h.length
       end
-      average = average / h.length
       average
     end
 
     def hash_values_sum(h)
       sum = 0
-      h.each do |key, value|
-        sum += value
+      if (h.present?)
+        h.each do |key, value|
+          sum += value
+        end
       end
       sum
     end
