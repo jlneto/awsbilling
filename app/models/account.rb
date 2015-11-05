@@ -72,7 +72,8 @@ class Account < ActiveRecord::Base
     dates = {}
     csv.each do |row|
       r = row.to_hash
-      if r['RecordType'] == 'LineItem'
+      # nao quero contabilizar os descontos da Dedalus
+      if r['RecordType'] == 'LineItem' && !r['ItemDescription'].downcase.include?('reseller program discount')
         # dates
         rec_date = r['UsageStartDate'].slice(0,10)
         if (dates[rec_date].present?)
