@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105133522) do
+ActiveRecord::Schema.define(version: 20151105181150) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -61,7 +61,11 @@ ActiveRecord::Schema.define(version: 20151105133522) do
     t.integer  "report_id"
   end
 
+  add_index "report_lines", ["custo"], name: "report_lines_custo_idx", using: :btree
+  add_index "report_lines", ["date"], name: "report_lines_date_idx", using: :btree
   add_index "report_lines", ["report_id"], name: "report_lines_report_id_fk", using: :btree
+  add_index "report_lines", ["resource_id"], name: "report_lines_resource_id_idx", using: :btree
+  add_index "report_lines", ["service"], name: "report_lines_service_idx", using: :btree
 
   create_table "reports", force: true do |t|
     t.date     "period"

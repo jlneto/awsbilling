@@ -1,10 +1,11 @@
 class Account < ActiveRecord::Base
   belongs_to :user
-  # has_many :users
   has_many :reports
   has_many :instances
 
   include Ec2Usage
+
+  attr_accessor :reference_date
 
   def to_s
     self.name
@@ -18,14 +19,17 @@ class Account < ActiveRecord::Base
 
   def update_billing_data(reference_date)
 
+    @reference_date = reference_date
+
     Aws.config.update({
                           region: self.s3_region,
                           credentials: Aws::Credentials.new(self.access_key, self.secret),
                       })
 
-    year = reference_date.year
-    month = reference_date.month.to_s.rjust(2,'0')
+    year = @reference_date.year
+    month = @reference_date.month.to_s.rjust(2,'0')
     # curr_month = "#{self.aws_account_id}-aws-billing-csv-#{year}-#{month}.csv"
+    # curr_month = "#{self.aws_account_id}-aws-billing-detailed-line-items-#{year}-#{month}.csv.zip"
     curr_month = "#{self.aws_account_id}-aws-billing-detailed-line-items-with-resources-and-tags-#{year}-#{month}.csv.zip"
 
     s3 = Aws::S3::Client.new
@@ -34,18 +38,18 @@ class Account < ActiveRecord::Base
     Zip::InputStream.open(resp.body) do |unzipped|
       zip_entry = unzipped.get_next_entry
       csv_data = zip_entry.get_input_stream.read
-      update_report(reference_date, csv_data)
+      update_report(csv_data)
     end
   end
 
 
-  def update_report(reference_date, csv_data)
-    period = reference_date.beginning_of_month
+  def update_report(csv_data)
+    period = @reference_date.beginning_of_month
     if period == Date.today.beginning_of_month
-      day = reference_date.day
+      day = @reference_date.day
     else
       # se não é o mes corrente, days e o numero de dias no mês
-      day = reference_date.end_of_month.day
+      day = @reference_date.end_of_month.day
     end
     rep = self.reports.where(period:period).first
     rep = self.reports.create(period:period) unless rep
@@ -66,7 +70,7 @@ class Account < ActiveRecord::Base
     #  hash usado para armazenar a AZ por resource-id pois, dependendo da operacao, um mesmo recurso pode ou nao ter a informacao de AZ na planilha da AWS
     az_by_resource_id = {}
     dates = {}
-    csv.to_a.map do |row|
+    csv.each do |row|
       r = row.to_hash
       if r['RecordType'] == 'LineItem'
         # dates
@@ -152,33 +156,35 @@ class Account < ActiveRecord::Base
   end
 
   def month_to_date_spend
-    rep = month_report(Date.today)
+    rep = month_report(@reference_date)
     if rep.present?
-      daily_spends = rep.report_lines.group('date').sum('unblended_cost')
+      daily_spends = rep.report_lines.where("date <= ?", @reference_date).group('date').sum('unblended_cost')
     end
     month_spend = hash_values_sum(daily_spends)
     month_spend
   end
 
   def last_month_to_date_spend
-    days = Date.today.day
-    rep = month_report(1.month.ago)
+    rep = month_report(@reference_date.prev_month)
     if rep.present?
-      daily_spends = rep.report_lines.group('date').sum('unblended_cost')
+      daily_spends = rep.report_lines.where("date <= ?", @reference_date.prev_month).group('date').group('date').sum('unblended_cost')
     end
     last_month_spend = hash_values_sum(daily_spends)
     last_month_spend
   end
 
   def month_estimate_spend
-    rep = month_report(Date.today)
-    days_in_month = Date.today.end_of_month.day
-    101010
+    daily_average = day_average_spend
+    daily_average * @reference_date.end_of_month.day
   end
 
   def last_month_spend
-    rep = month_report(1.month.ago)
-    101010
+    rep = month_report(@reference_date.prev_month)
+    if rep.present?
+      daily_spends = rep.report_lines.group('date').group('date').sum('unblended_cost')
+    end
+    last_month_spend = hash_values_sum(daily_spends)
+    last_month_spend
   end
 
   def month_change
@@ -190,7 +196,7 @@ class Account < ActiveRecord::Base
   end
 
   def day_average_spend
-    rep = month_report(Date.today)
+    rep = month_report(@reference_date)
     if rep.present?
       daily_spends = rep.report_lines.group('date').sum('unblended_cost')
     end
@@ -199,8 +205,12 @@ class Account < ActiveRecord::Base
   end
 
   def previous_average_spend
-    rep = month_report(Date.today)
-    101010
+    rep = month_report(@reference_date.prev_month)
+    if rep.present?
+      daily_spends = rep.report_lines.group('date').sum('unblended_cost')
+    end
+    daily_average = hash_values_average(daily_spends)
+    daily_average
   end
 
   def day_average_change
@@ -208,24 +218,24 @@ class Account < ActiveRecord::Base
   end
 
   def day_spend
-    rep = month_report(Date.today)
+    rep = month_report(@reference_date)
     if rep.present?
       daily_spends = rep.report_lines.group('date').sum('unblended_cost')
     end
     if (daily_spends.present?)
-      daily_spends[Date.today]
+      daily_spends[@reference_date]
     else
       0
     end
   end
 
   def previous_day_spend
-    rep = month_report(Date.today)
+    rep = month_report(@reference_date)
     if rep.present?
       daily_spends = rep.report_lines.group('date').sum('unblended_cost')
     end
     if (daily_spends.present?)
-      daily_spends[Date.yesterday]
+      daily_spends[@reference_date.prev_day]
     else
       nil
     end
@@ -256,7 +266,7 @@ class Account < ActiveRecord::Base
         end
         average = average / h.length
       end
-      average
+      average.round(2)
     end
 
     def hash_values_sum(h)

@@ -2,7 +2,7 @@
 = render :partial => 'accounts/status'
 
 %p
-  = link_to 'Update', update_billing_account_path(@account.id), class: 'btn btn-primary'
+  = link_to 'Update', "#{update_billing_account_path(@account.id)}?ref_date=#{params[:ref_date]}", class: 'btn btn-primary'
 - if @account.last_update
   %p
     Last update at

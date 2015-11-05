@@ -38,3 +38,18 @@ Scheduled process to
 - update billing indicators         
 - prepare and send email reports
 
+
+Examples:
+========
+
+Updating the billing information for a certain month:
+
+ http://localhost:3000/accounts/1/update_billing?ref_date=2015-09-21
+
+The ref_date parameter indicates a reference in date in the month. The whole billing information available for the month
+(not only for the day indicated in the reference date) will be downloaded from AWS and stored in the database.
+
+
+Choosing the reference date on your home screen:
+
+http://localhost:3000/?ref_date=2015-09-21

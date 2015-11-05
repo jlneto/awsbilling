@@ -63,12 +63,11 @@ class AccountsController < ApplicationController
 
   def update_billing
     account = current_user.account
-    account.update_billing_data(Date.today)
-    # account.update_billing_data(1.month.ago)
-    # unless account.month_report(1.month.ago)
-    #   account.update_billing_data(1.month.ago)
-    # end
-    redirect_to :root
+    reference_date = Date.parse(params[:ref_date], '%Y-%m-%d') if params[:ref_date].present?
+    reference_date = Date.today if reference_date.blank?
+    account.update_billing_data(reference_date)
+
+    redirect_to root_url(:ref_date => params[:ref_date])
   end
 
   private
