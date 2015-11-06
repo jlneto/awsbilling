@@ -168,8 +168,10 @@ class Account < ActiveRecord::Base
         daily_spends.each do |k, v|
           spend = {} if series[k[0]].blank?
           spend = series[k[0]] if series[k[0]].present?
-          spend[k[1]] = v
-          series[k[0]] = spend
+          if (v > 0)
+            spend[k[1]] = v
+            series[k[0]] = spend
+          end
         end
       end
 
