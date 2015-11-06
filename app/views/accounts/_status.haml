@@ -9,3 +9,19 @@
 = render  'accounts/indicator_panel', title: 'Valor Estimado para o mês', value:  @account.month_estimate_spend, difference: @account.month_change, previous_title: 'Valor do mês anterior foi', previous_value: @account.last_month_spend
 = render  'accounts/indicator_panel', title: 'Média diária', value:  @account.day_average_spend, difference: @account.day_average_change, previous_title: 'A média diária do mês anterior foi', previous_value: @account.previous_average_spend
 = render  'accounts/indicator_panel', title: 'Custo do dia', value:  @account.day_spend, difference: @account.day_spend_change, previous_title: 'O custo do dia anterior foi', previous_value: @account.previous_day_spend
+
+%h3
+  Custo por serviço
+= pie_chart @account.month_to_date_group_by_service
+
+%h3
+  Custo por centro de custo
+= pie_chart @account.month_to_date_group_by_custo
+
+%h3
+  Tendência de curto prazo do custo total
+= line_chart @account.day_spend_moving_averages
+
+%h3
+  Evolução do custo por serviço
+= line_chart @account.spend_by_service_over_time
