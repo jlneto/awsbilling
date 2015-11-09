@@ -227,9 +227,9 @@ class Account < ActiveRecord::Base
         # nao quero contabilizar os descontos da Dedalus
         if r['RecordType'] == 'LineItem' && !r['ItemDescription'].downcase.include?('reseller program discount')
           # dates
-          rec_date = r['UsageStartDate'].slice(0,10)
-          if (dates[rec_date].present?)
-            report_lines_for_this_date = dates[rec_date]
+          record_date = r['UsageStartDate'].slice(0,10)
+          if (dates[record_date].present?)
+            report_lines_for_this_date = dates[record_date]
           else
             report_lines_for_this_date = {}
           end
@@ -241,30 +241,28 @@ class Account < ActiveRecord::Base
           if (report_lines_for_this_date[report_line_key].present?)
             report_line = report_lines_for_this_date[report_line_key]
           else
-            parsed_date = Date.parse(rec_date, '%Y-%m-%d')
-            report_line = ReportLine.where(:service => service_name).where(:resource_id => resource_id).where(:date => parsed_date).first
-            if (report_line.blank?)
-              report_line = ReportLine.new
-              report_line.product_name = r['ProductName']
-              report_line.resource_id = resource_id
-              report_line.resource_name = r['user:Name'] || r['user:name']
-              if (r['AvailabilityZone'].present?)
-                az_by_resource_id[resource_id] = r['AvailabilityZone']
-              end
-              report_line.az = az_by_resource_id[resource_id]
-              report_line.custo = r['user:custo']
-              report_line.service = service_name
-              report_line.blended_cost = 0
-              report_line.unblended_cost = 0
-              report_line.date = parsed_date
+            parsed_date = Date.parse(record_date, '%Y-%m-%d')
+            ReportLine.where(:service => service_name).where(:resource_id => resource_id).where(:date => parsed_date).destroy_all
+            report_line = ReportLine.new
+            report_line.product_name = r['ProductName']
+            report_line.resource_id = resource_id
+            report_line.resource_name = r['user:Name'] || r['user:name']
+            if (r['AvailabilityZone'].present?)
+              az_by_resource_id[resource_id] = r['AvailabilityZone']
             end
+            report_line.az = az_by_resource_id[resource_id]
+            report_line.custo = r['user:custo']
+            report_line.service = service_name
+            report_line.blended_cost = 0
+            report_line.unblended_cost = 0
+            report_line.date = parsed_date
           end
 
           report_line.blended_cost += r['BlendedCost'].to_f if r['BlendedCost'].present?
           report_line.unblended_cost += r['UnBlendedCost'].to_f if r['UnBlendedCost'].present?
 
           report_lines_for_this_date[report_line_key] = report_line
-          dates[rec_date] = report_lines_for_this_date
+          dates[record_date] = report_lines_for_this_date
         end
       end
 
